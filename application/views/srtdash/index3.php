@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Coop - Manager Dashboard</title>
+    <title>Coop - LoanClerk Dashboard</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/png" href="<?= base_url('assets/images/icon/favicon.ico');?>">
     <link rel="stylesheet" href="<?= base_url('assets/css/bootstrap.min.css'); ?> ">
@@ -52,88 +52,6 @@
                                 <a href="javascript:void(0)" aria-expanded="true"><i class="ti-dashboard"></i><span>dashboard</span></a>
                                 <ul class="collapse">
                                     <li class="active"><a href="<?= base_url('loanclerk'); ?> ">LoanClerk dashboard</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0)" aria-expanded="true"><i class="ti-layout-sidebar-left"></i><span>Sidebar
-                                        Types
-                                    </span></a>
-                                <ul class="collapse">
-                                    <li><a href="<?= base_url('index.php'); ?> ">Left Sidebar</a></li>
-                                    <li><a href="<?= base_url('index3-horizontalmenu.php'); ?> ">Horizontal Sidebar</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0)" aria-expanded="true"><i class="ti-pie-chart"></i><span>Charts</span></a>
-                                <ul class="collapse">
-                                    <li><a href="<?= base_url('barchart.php'); ?> ">bar chart</a></li>
-                                    <li><a href="<?= base_url('linechart.php'); ?> ">line Chart</a></li>
-                                    <li><a href="<?= base_url('piechart.php'); ?> ">pie chart</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0)" aria-expanded="true"><i class="ti-palette"></i><span>UI Features</span></a>
-                                <ul class="collapse">
-                                    <li><a href="<?= base_url('accordion.php'); ?> ">Accordion</a></li>
-                                    <li><a href="<?= base_url('alert.php'); ?> ">Alert</a></li>
-                                    <li><a href="<?= base_url('badge.php'); ?> ">Badge</a></li>
-                                    <li><a href="<?= base_url('button.php'); ?> ">Button</a></li>
-                                    <li><a href="<?= base_url('button-group.php'); ?> ">Button Group</a></li>
-                                    <li><a href="<?= base_url('cards.php'); ?> ">Cards</a></li>
-                                    <li><a href="<?= base_url('dropdown.php'); ?> ">Dropdown</a></li>
-                                    <li><a href="<?= base_url('list-group.php'); ?> ">List Group</a></li>
-                                    <li><a href="<?= base_url('media-object.php'); ?> ">Media Object</a></li>
-                                    <li><a href="<?= base_url('modal.php'); ?> ">Modal</a></li>
-                                    <li><a href="<?= base_url('pagination.php'); ?> ">Pagination</a></li>
-                                    <li><a href="<?= base_url('popovers.php'); ?> ">Popover</a></li>
-                                    <li><a href="<?= base_url('progressbar.php'); ?> ">Progressbar</a></li>
-                                    <li><a href="<?= base_url('tab.php'); ?> ">Tab</a></li>
-                                    <li><a href="<?= base_url('typography.html'); ?> ">Typography</a></li>
-                                    <li><a href="<?= base_url('form.php'); ?> ">Form</a></li>
-                                    <li><a href="<?= base_url('grid.php'); ?> ">grid system</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0)" aria-expanded="true"><i class="ti-slice"></i><span>icons</span></a>
-                                <ul class="collapse">
-                                    <li><a href="<?= base_url('fontawesome.php'); ?> ">fontawesome icons</a></li>
-                                    <li><a href="<?= base_url('themify.php'); ?> ">themify icons</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-table"></i>
-                                    <span>Tables</span></a>
-                                <ul class="collapse">
-                                    <li><a href="<?= base_url('table-basic.php'); ?> ">basic table</a></li>
-                                    <li><a href="<?= base_url('table-layout.php'); ?> ">table layout</a></li>
-                                    <li><a href="<?= base_url('datatable.php'); ?> ">datatable</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="<?= base_url('maps.php'); ?> "><i class="ti-map-alt"></i> <span>maps</span></a></li>
-                            <li><a href="<?= base_url('invoice.php'); ?> "><i class="ti-receipt"></i> <span>Invoice Summary</span></a></li>
-                            <li>
-                                <a href="javascript:void(0)" aria-expanded="true"><i class="ti-layers-alt"></i> <span>Pages</span></a>
-                                <ul class="collapse">
-                                    <li><a href="<?= base_url('login.php'); ?> ">Login</a></li>
-                                    <li><a href="<?= base_url('login2.php'); ?> ">Login 2</a></li>
-                                    <li><a href="<?= base_url('login3.php'); ?> ">Login 3</a></li>
-                                    <li><a href="<?= base_url('register.php'); ?> ">Register</a></li>
-                                    <li><a href="<?= base_url('register2.php'); ?> ">Register 2</a></li>
-                                    <li><a href="<?= base_url('register3.php'); ?> ">Register 3</a></li>
-                                    <li><a href="<?= base_url('register4.php'); ?> ">Register 4</a></li>
-                                    <li><a href="<?= base_url('screenlock.php'); ?> ">Lock Screen</a></li>
-                                    <li><a href="<?= base_url('screenlock2.php'); ?> ">Lock Screen 2</a></li>
-                                    <li><a href="<?= base_url('reset-pass.php'); ?> ">reset password</a></li>
-                                    <li><a href="<?= base_url('pricing.php'); ?> ">Pricing</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-exclamation-triangle"></i>
-                                    <span>Error</span></a>
-                                <ul class="collapse">
-                                    <li><a href="<?= base_url('404.php'); ?> ">Error 404</a></li>
-                                    <li><a href="<?= base_url('403.php'); ?> ">Error 403</a></li>
-                                    <li><a href="<?= base_url('500.php'); ?> ">Error 500</a></li>
                                 </ul>
                             </li>
                             <li>
@@ -354,6 +272,19 @@
             </div>
             <!-- page title area end -->
             <div class="main-content-inner">
+
+                <div style="background-color: #1e4030;padding: 2%;margin-top: 3%;border:1px solid cyan;border-radius: 20px;margin: 5% 10% 5% 10%;">
+                    <div class="review">
+                        <a href=""><img src="assets/images/icon/sa.png" width="100" style="margin-left: 25%;"></a>
+                        <a href=""><img src="assets/images/icon/re.png" width="100" style="margin-left: 20%;"></a>
+                    </div>
+                    <div>
+                        <a href="#" style="padding-left: 20%;">Review Loan Application</a>
+                        <a href="#" style="padding-left: 15%;">Check Loan Status</a>
+                    </div>
+                    
+                </div>
+            </div>
                 <!-- sales report area start --
                 <!-- sales report area end -->
                 <!-- overview area start -->
@@ -363,6 +294,8 @@
                 
         </div>
     </div>
+
+
     <!-- offset area end -->
     <!-- jquery latest version -->
     <script src="assets/js/vendor/jquery-2.2.4.min.js"></script>
@@ -380,10 +313,7 @@
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <!-- start zingchart js -->
     <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
-    <script>
-    zingchart.MODULESDIR = "https://cdn.zingchart.com/modules/";
-    ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9", "ee6b7db5b51705a13dc2339db3edaf6d"];
-    </script>
+    
     <!-- all line chart activation -->
     <script src="assets/js/line-chart.js"></script>
     <!-- all pie chart -->
