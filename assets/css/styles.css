@@ -2827,3 +2827,7 @@ table.dataTable thead td {
 }
 
 /*-------------------- END Offset Sidebar ------------------- */
+.review img:hover{
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+}
