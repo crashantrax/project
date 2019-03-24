@@ -253,7 +253,8 @@
                             <h4 class="page-title pull-left">Dashboard</h4>
                             <ul class="breadcrumbs pull-left">
                                 <li><a href="<?= base_url('index.php'); ?> ">Home</a></li>
-                                <li><span>Dashboard</span></li>
+                                <li><a href="<?= base_url(); ?>">Dashboard</a></li>
+                                <li><span>Loan Application</span></li>
                             </ul>
                         </div>
                     </div>
@@ -273,17 +274,60 @@
             <!-- page title area end -->
             <div class="main-content-inner">
 
-                <div style="background-color: #1e4030;padding: 2%;margin-top: 3%;border:1px solid cyan;border-radius: 20px;margin: 5% 10% 5% 10%;">
-                    <div class="review">
-                        <a href="applicationform"><img src="assets/images/icon/sa.png" width="100" style="margin-left: 25%;"></a>
-                        <a href=""><img src="assets/images/icon/re.png" width="100" style="margin-left: 20%;"></a>
-                    </div>
-                    <div>
-                        <a href="<?= base_url('applicationform') ?>" style="padding-left: 20%;">Review Loan Application</a>
-                        <a href="#" style="padding-left: 15%;">Check Loan Status</a>
-                    </div>
-                    
-                </div>
+            <!-- Hoverable Rows Table start -->
+                <div class="col-lg-15 mt-5">
+                    <div class="card">
+                         <div class="card-body">
+                             <h4 class="header-title">Loan Applications</h4>
+                             <div class="single-table">
+                                 <div class="table-responsive">
+                                     <table class="table table-hover text-center">
+                                        <thead class="text-uppercase">
+                                            <tr>
+                                                <th scope="col">ID</th>
+                                                <th scope="col">Name</th>
+                                                <th scope="col">date</th>
+                                                <th scope="col">price</th>
+                                                <th scope="col">action</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                    <th scope="row">1</th>
+                                                <td>Mark</td>
+                                                <td>09 / 07 / 2018</td>
+                                                <td>$120</td>
+                                                <td><i class="ti-trash"></i></td>
+                                                </tr>
+                                            <tr>
+                                                    <th scope="row">1</th>
+                                                 <td>jone</td>
+                                                <td>09 / 07 / 2018</td>
+                                                <td>$150</td>
+                                                   <td><i class="ti-trash"></i></td>
+                                            </tr>
+                                            <tr>
+                                                   <th scope="row">1</th>
+                                                <td>Mark</td>
+                                                <td>09 / 07 / 2018</td>
+                                                <td>$120</td>
+                                                <td><i class="ti-trash"></i></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">1</th>
+                                                <td>jone</td>
+                                                <td>09 / 07 / 2018</td>
+                                                <td>$150</td>
+                                                <td><i class="ti-trash"></i></td>
+                                            </tr>
+                                         </tbody>
+                                     </table>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+                    <!-- Hoverable Rows Table end -->
             </div>
                 <!-- sales report area start --
                 <!-- sales report area end -->
