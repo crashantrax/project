@@ -23,11 +23,18 @@
     <link rel="stylesheet" href="<?= base_url('assets/css/responsive.css'); ?> ">
     <!-- modernizr css -->
     <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="<?= base_url('assets/fonts/material-icon/css/material-design-iconic-font.min.css')?>">
+    <link rel="stylesheet" href="<?= base_url('assets/vendor/nouislider/nouislider.min.css')?>">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="<?= base_url('assets/css/style.css')?>">
 </head>
 
 <body>
     <div class="contents">
         <div id="header-black">
             <div id="logo-container"></div>
-            <div class="app-title">Coop Loan Management System</div>
+            <div class="app-title">Cooperative Loan</div>
         </div>

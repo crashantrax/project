@@ -14,7 +14,7 @@ class Cashier extends CI_Controller {
     }
 
     private function main_contents(){
-        $data = array('title' => "Cahshiering",'contents' => "pages/c-table",'page' => "Main Page" );
+        $data = array('title' => "Cahshiering",'contents' => "pages/c-table",'page' => "Members","links" => "main"  );
         $this->load->view('templates/dashboard-header',$data);
         $this->load->view('pages/cashier-main',$data);
     }

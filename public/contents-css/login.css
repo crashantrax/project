@@ -1,7 +1,8 @@
 
 #header-black{
+    z-index: 1000;
     position: fixed;
-    height: 70px;
+    height: 62px;
     width: 100%;
     border-bottom: 1px #AFAFAF solid;
 	background: url(logo/top_bg.png);
@@ -13,7 +14,7 @@
     background: url(logo/sample-logo.png) no-repeat;
     height: 65px;
     width: 145px;
-    margin-top: 3px;
+    margin-top: -7px;
     margin-left: 182px;
 
 
@@ -116,7 +117,7 @@
 .app-title{
 	width: 300px;
     height: 24px;
-    margin-top: 32px;
+    margin-top: 21px;
     font-size: 15px;
     position: absolute;
     margin-left: 260px;

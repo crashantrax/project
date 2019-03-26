@@ -12,5 +12,5 @@
 	<div class="contents">
 		<div id="header-black">
 			<div id="logo-container"></div>
-			<div class="app-title">Coop Loan Management System</div>
+			<div class="app-title">Cooperative Loan</div>
 		</div>

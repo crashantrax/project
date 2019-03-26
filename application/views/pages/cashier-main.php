@@ -18,7 +18,7 @@
                         <ul class="metismenu" id="menu">
                             
                           
-                            <li><a href=""><i class="ti-map-alt"></i> <span>Home</span></a></li>
+                            <li><a href="<?=base_url()?>"><i class="ti-map-alt"></i> <span>Home</span></a></li>
                             <li><a href="<?= base_url('register') ?>"><i class="ti-map-alt"></i> <span>Create Account</span></a></li>
                            
                             
@@ -69,8 +69,17 @@
                         <div class="breadcrumbs-area clearfix">
                             <h4 class="page-title pull-left"><?= $page ?></h4>
                             <ul class="breadcrumbs pull-left">
-                                <li><a href="<?= base_url('index.php'); ?> ">Home</a></li>
-                                <li><span>Main</span></li>
+                                <li><a href="<?=base_url()?>">Home</a></li>
+                                <?php 
+                                if($links == "main"){
+                                    echo "<li><span>View</span></li>";
+                                 }
+                                 else if($links == "register"){
+                                     echo "<li><span>Register</span></li>";
+                                 }
+                                ?>
+                               
+
                             </ul>
                         </div>
                     </div>
@@ -118,6 +127,17 @@
     <!-- others plugins -->
     <script src="assets/js/plugins.js"></script>
     <script src="assets/js/scripts.js"></script>
+
+
+
+    <script src="assets/vendor/jquery/jquery.min.js"></script>
+    <script src="assets/vendor/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="assets/vendor/jquery-validation/dist/additional-methods.min.js"></script>
+    <script src="assets/vendor/jquery-steps/jquery.steps.min.js"></script>
+    <script src="assets/vendor/minimalist-picker/dobpicker.js"></script>
+    <script src="assets/vendor/nouislider/nouislider.min.js"></script>
+    <script src="assets/vendor/wnumb/wNumb.js"></script>
+    <script src="assets/js/main.js"></script>
 </body>
 
 </html>

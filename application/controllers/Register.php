@@ -2,11 +2,16 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Register extends CI_Controller {
 	 public function index(){
-	        $data['location'] = "public/contents-css/profile.css";
-            $this->load->view('templates/header',$data);
-            $this->load->view('pages/register');
-            $this->load->view('templates/footer');
+	      $this->main_contents();
         }
+
+
+        private function main_contents(){
+        $data = array('title' => "Cahshiering",'contents' => "pages/c-addMember",'page' => "Registration","links" => "register" );
+        $this->load->view('templates/dashboard-header',$data);
+        $this->load->view('pages/cashier-main',$data);
+        }
+
 
         public function register_stats($error,$stats)
         {     
