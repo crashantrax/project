@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.5.2
+-- version 4.8.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 27, 2019 at 04:59 AM
--- Server version: 10.1.21-MariaDB
--- PHP Version: 5.6.30
+-- Generation Time: Mar 26, 2019 at 02:13 PM
+-- Server version: 10.1.34-MariaDB
+-- PHP Version: 7.2.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -280,7 +282,8 @@ CREATE TABLE `staff_acount` (
 --
 
 INSERT INTO `staff_acount` (`UserAccountID`, `Username`, `Password`, `Usertype`) VALUES
-(1, 'Cashier', 'Cashier', 'cashier');
+(1, 'Cashier', 'Cashier', 'cashier'),
+(2, 'loan', '123', 'loanclerk');
 
 -- --------------------------------------------------------
 
@@ -462,91 +465,110 @@ ALTER TABLE `user_employment`
 --
 ALTER TABLE `children`
   MODIFY `ChildrenID` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `family_info`
 --
 ALTER TABLE `family_info`
   MODIFY `Family_InfoID` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `loan`
 --
 ALTER TABLE `loan`
   MODIFY `LoanID` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `loanlogs`
 --
 ALTER TABLE `loanlogs`
   MODIFY `LoanLogsID` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `member_account`
 --
 ALTER TABLE `member_account`
   MODIFY `MemberAccountID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
 -- AUTO_INCREMENT for table `member_business`
 --
 ALTER TABLE `member_business`
   MODIFY `MemberBusinessID` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `member_college`
 --
 ALTER TABLE `member_college`
   MODIFY `UserCollegeID` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `member_contribution`
 --
 ALTER TABLE `member_contribution`
   MODIFY `MemberContributionID` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `member_depositlogs`
 --
 ALTER TABLE `member_depositlogs`
   MODIFY `MemberDepositLogsID` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `member_elementary`
 --
 ALTER TABLE `member_elementary`
   MODIFY `UserElementaryID` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `member_highschool`
 --
 ALTER TABLE `member_highschool`
   MODIFY `UserHighschoolID` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `member_postgrad`
 --
 ALTER TABLE `member_postgrad`
   MODIFY `UserPostGradID` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `member_sharelogs`
 --
 ALTER TABLE `member_sharelogs`
   MODIFY `MemberShareLogsID` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `member_withdrawallogs`
 --
 ALTER TABLE `member_withdrawallogs`
   MODIFY `WithdrawalProfileID` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `paymentlogs`
 --
 ALTER TABLE `paymentlogs`
   MODIFY `LoanPaymentLogs` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `staff_acount`
 --
 ALTER TABLE `staff_acount`
-  MODIFY `UserAccountID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `UserAccountID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT for table `staff_profile`
 --
 ALTER TABLE `staff_profile`
   MODIFY `StaffProfileID` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `user_employment`
 --
 ALTER TABLE `user_employment`
   MODIFY `MemberEmploymentID` int(11) NOT NULL AUTO_INCREMENT;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
