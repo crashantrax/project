@@ -2,21 +2,21 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Cashier extends CI_Controller {
 
-	public function index(){
-		$this->check_logged();
-      	$this->main_contents();
+    public function index(){
+        $this->check_logged();
+        $this->main_contents();
     }
     //menu options
 
     public function logout(){
-    	session_destroy();
-    	redirect();
+        session_destroy();
+        redirect();
     }
 
     private function main_contents(){
-        $data = array('title' => "Cahshiering" );
+        $data = array('title' => "Cahshiering",'contents' => "pages/c-table",'page' => "Main Page" );
         $this->load->view('templates/dashboard-header',$data);
-        $this->load->view('pages/cashier');
+        $this->load->view('pages/cashier-main',$data);
     }
 
     private function check_logged(){

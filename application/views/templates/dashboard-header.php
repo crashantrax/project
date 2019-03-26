@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="<?= base_url('assets/css/typography.css'); ?> ">
     <link rel="stylesheet" href="<?= base_url('assets/css/default-css.css'); ?> ">
     <link rel="stylesheet" href="<?= base_url('assets/css/styles.css'); ?> ">
-    <link rel="stylesheet" href="<?= base_url('public/contents-css/user.css'); ?>" >
+    <link rel="stylesheet" href="<?= base_url('public/contents-css/login.css'); ?>" >
     <link rel="stylesheet" href="<?= base_url('assets/css/responsive.css'); ?> ">
     <!-- modernizr css -->
     <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>

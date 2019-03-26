@@ -1,6 +1,6 @@
 <div class="main-container">
 			<div class="login-container">
-				<div class="login-header"><div class="login-header-text">Login</div></div>
+				<div class="login-header"><div class="login-header-text">Welcome</div></div>
 				<div class="col-md-12">
 					<form  method="POST" action="<?php echo base_url('stats/login_validation'); ?>">
 						<div class="panel-primary">

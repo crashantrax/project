@@ -19,7 +19,7 @@
                             
                           
                             <li><a href=""><i class="ti-map-alt"></i> <span>Home</span></a></li>
-                            <li><a href=""><i class="ti-map-alt"></i> <span>Create Account</span></a></li>
+                            <li><a href="<?= base_url('register') ?>"><i class="ti-map-alt"></i> <span>Create Account</span></a></li>
                            
                             
                         </ul>
@@ -67,7 +67,7 @@
                 <div class="row align-items-center">
                     <div class="col-sm-6">
                         <div class="breadcrumbs-area clearfix">
-                            <h4 class="page-title pull-left">Main Page</h4>
+                            <h4 class="page-title pull-left"><?= $page ?></h4>
                             <ul class="breadcrumbs pull-left">
                                 <li><a href="<?= base_url('index.php'); ?> ">Home</a></li>
                                 <li><span>Main</span></li>
@@ -89,34 +89,11 @@
             </div>
             <!-- page title area end -->
             <div class="main-content-inner">
-                <table class="table">
-                    <tr>
-                        <th>Account No.</th>
-                        <th>Name</th>
-                         <th>Date Created</th>
-                        <th>Actions</th>
-                    </tr>
-                    <tr>
-                        <td>20-2232-1233</td>
-                        <td><a href="123">John Lloyd,Cruz</a></td>
-                        <td>01-24-2012</td>
-                        <td><button>Edit</button><button>Account Status</button><button>Click</button></td>
-                    </tr>
-                    <tr>
-                        <td>20-2313-1233</td>
-                        <td><a href="123">Bea Lloyd,Cruz</a></td>
-                        <td>01-24-2002</td>
-                        <td><button>Edit</button><button>Account Status</button><button>Click</button></td>
-                    </tr>
-                    <tr>
-                        <td>20-3333-1233</td>
-                        <td><a href="123">John Sarah,Cruz</a></td>
-                        <td>01-24-2018</td>
-                        <td><button>Edit</button><button>Account Status</button><button>Click</button></td>
-                    </tr>
-                    
-
-                </table>
+                <?php 
+                if(isset($contents)){
+                    $this->load->view($contents);
+                }
+                ?>
             </div>
     </div>
     <!-- offset area end -->
@@ -131,19 +108,13 @@
     <script src="assets/js/jquery.slicknav.min.js"></script>
 
     <!-- start chart js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+    
     <!-- start highcharts js -->
-    <script src="https://code.highcharts.com/highcharts.js"></script>
     <!-- start zingchart js -->
-    <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
-    <script>
-    zingchart.MODULESDIR = "https://cdn.zingchart.com/modules/";
-    ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9", "ee6b7db5b51705a13dc2339db3edaf6d"];
-    </script>
+
     <!-- all line chart activation -->
-    <script src="assets/js/line-chart.js"></script>
     <!-- all pie chart -->
-    <script src="assets/js/pie-chart.js"></script>
+
     <!-- others plugins -->
     <script src="assets/js/plugins.js"></script>
     <script src="assets/js/scripts.js"></script>
