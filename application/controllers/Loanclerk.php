@@ -28,7 +28,7 @@ class Loanclerk extends CI_Controller {
             $userType = $this->session->userdata('user_type');
             if('cashier'==$userType){
                 redirect('cashier');
-            }else if ('loan_clerk'==$userType){
+            }else if ('loanclerk'==$userType){
                 redirect('clerk');
             }else if ('manager'==$userType){
                 redirect('manager');
