@@ -15,9 +15,9 @@ class Manager extends CI_Controller {
 
      public function register(){
         $this->check_logged();
-        $data = array('title' => "Manage Employee",'contents' => "pages/c-addMember",'page' => "Registration","links" => "register" );
+        $data = array('title' => "Manage Employee",'contents' => "pages/m-addEmployee",'page' => "Registration","links" => "register" );
         $this->load->view('templates/dashboard-header',$data);
-        $this->load->view('pages/cashier-main',$data);
+        $this->load->view('pages/manager-main',$data);
     }
 
         public function register_employee(){

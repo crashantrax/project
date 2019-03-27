@@ -5,7 +5,7 @@
             <table align="center" border="0" class="table">
                         <tr>
                             <tr>
-                                <th colspan="3"><div align="center">Personal Information</div></th>
+                                <th colspan="3"><div align="center">Personal Informations</div></th>
                             </tr>
                             <tr>
                                 
@@ -135,10 +135,6 @@
                  </tr>
         </table>
   </div>
-
-
-  
-<!-- 
   <div style="overflow:auto;">
     <div style="float:right;">
       <a class="btn btn-danger"  href="<?=base_url()?>">Cancel</a>
@@ -147,16 +143,15 @@
   </div>
 
   <!-- Circles which indicates the steps of the form: -->
- <!--  <div style="text-align:center;margin-top:40px;">
+  <div style="text-align:center;margin-top:40px;">
     <span class="step"></span>
     <span class="step"></span>
     <span class="step"></span>
     <span class="step"></span>
     <span class="step"></span>
-  </div> -->
+  </div>
                 
- <!--           
+        
     </form>
 </div>
 <script src="<?=base_url('public/contents-script/next.js')?>"></script>
- --> -->

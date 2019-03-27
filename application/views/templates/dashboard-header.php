@@ -34,6 +34,6 @@
 <body>
     <div class="contents">
         <div id="header-black">
-            <div id="logo-container"></div>
-            <div class="app-title">Cooperative Loan</div>
+            <a href="<?= base_url();?>"><div id="logo-container"></div></a>
+            <div class="app-title"> <a href="<?= base_url();?>">Cooperative Loan</a></div>
         </div>
