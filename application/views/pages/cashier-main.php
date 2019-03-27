@@ -42,7 +42,7 @@
                         </div>
                         <div class="search-box pull-left">
                             <form action="<?= base_url(); ?>">
-                                <input type="text" name="search" placeholder="Search..." required>
+                                <input type="text" id="search" name="search" placeholder="Search..." required>
                                 <i class="ti-search"></i>
                             </form>
                         </div>
@@ -105,7 +105,7 @@
                 ?>
             </div>
     </div>
-    <script src="<?=base_url('public/contents-script/next.js')?>"></script>
+    
     <!-- offset area end -->
     <!-- jquery latest version -->
     <script src="<?=base_url('assets/js/vendor/jquery-2.2.4.min.js')?>"></script>
@@ -139,6 +139,8 @@
     <script src="<?=base_url('assets/vendor/nouislider/nouislider.min.js')?>"></script>
     <script src="<?=base_url('assets/vendor/wnumb/wNumb.js')?>"></script>
     <script src="<?=base_url('assets/js/main.js')?>"></script>
+    <script src="<?=base_url('public/contents-script/search.js')?>"></script>
+
 
 </body>
 

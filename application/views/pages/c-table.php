@@ -1,4 +1,4 @@
-<table class="table">
+<table class="table" id="member">
                     <tr>
                         <th>#</th>
                         <th>Account No.</th>
@@ -9,7 +9,8 @@
 
 
                     <?php
-                    $count=1;
+                    if($res->num_rows()>0){
+                        $count=1;
                     $counter=1;
                     foreach ($res->result() as $row){
                         if($counter==1){
@@ -21,7 +22,7 @@
                             $counter=1;
                         }
 
-                        echo "<tr class=".$num."><td>".$count."</td>";
+                        echo "<tr id='col' class=".$num."><td>".$count."</td>";
                         echo "<td>".$row->account_number."</td>";
                         echo "<td><a href=''>".ucfirst($row->FirstName)." ".ucfirst($row->MiddleName)." ".ucfirst($row->LastName)."</a></td>";
                         echo "<td>".$row->date_created."</td>";
@@ -31,9 +32,13 @@
                     <td>
                         <a href="" style="width: 30%" class="btn btn-primary">Withdraw</a>
                         <a href="" style="width: 30%" class="btn btn-success">Deposit</a>
-                        <a href="" style="width: 30%" class="btn btn-danger">Delete</a>
+                        <a href="javascript:confirmDelete('<?=base_url("cashier/delete/".$row->MemberAccountID); ?>')" style="width: 30%" class="btn btn-danger">Delete</a>
                     </td>
                     <?php } ?>
+                    <?php }else{
+                        echo "<tr><td>0 Results<td>";
+                    }?> 
                     </tr>
+
                 </table>
                

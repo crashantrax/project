@@ -30,6 +30,12 @@ class Cashier extends CI_Controller {
         $this->load->view('templates/dashboard-header',$data);
         $this->load->view('pages/cashier-main',$data);
     }
+
+    public function delete($id){
+        $this->load->model('Register','register');
+        $this->register->delete($id);
+        redirect('cashier');
+    }
     public function register_members(){
         $this->load->model('Register','register');
                         $fname = $this->input->post('first_name');  

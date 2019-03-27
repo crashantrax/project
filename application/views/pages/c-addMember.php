@@ -512,3 +512,4 @@
            
     </form>
 </div>
+<script src="<?=base_url('public/contents-script/next.js')?>"></script>

@@ -2,6 +2,11 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Register extends CI_Model {
 
+
+
+	public function delete($id){
+		$this->db->query("DELETE FROM member_account WHERE MemberAccountID =".$id);
+	}
 	public function register_profile($fname,$mname,$lname,$phone,$email,$pob,$dob,$nationality,$sex,$civil,$blood,$home,$stats,$acc,$date){
             $data = array(
                 'FirstName' => $fname,
