@@ -130,7 +130,7 @@ class Cashier extends CI_Controller {
     private function main_contents(){
         $this->load->model('Mem_model','members');
         $res = $this->members->getMembers();
-        $data = array('title' => "Cahshiering",'contents' => "pages/c-table",'page' => "Members","links" => "main","res" => $res  );
+        $data = array('title' => "Cashiering",'contents' => "pages/c-table",'page' => "Members","links" => "main","res" => $res  );
         $this->load->view('templates/dashboard-header',$data);
         $this->load->view('pages/cashier-main',$data);
     }

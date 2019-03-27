@@ -18,10 +18,8 @@
                         <ul class="metismenu" id="menu">
                             
                           
-                            <li><a href="<?=base_url()?>"><i class="ti-map-alt"></i> <span>Home</span></a></li>
-                            <li><a href="<?= base_url('cashier/register') ?>"><i class="ti-map-alt"></i> <span>Create Account</span></a></li>
-                           
-                            
+                            <li><a href="<?=base_url()?>"><i class="ti-home"></i> <span>Home</span></a></li>
+                            <li><a href="<?= base_url('cashier/register') ?>"><i class="ti-id-badge"></i> <span>Create Account</span></a></li>
                         </ul>
                     </nav>
                 </div>
