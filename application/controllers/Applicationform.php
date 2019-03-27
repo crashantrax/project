@@ -17,8 +17,11 @@ class Applicationform extends CI_Controller {
 
 
     private function main_contents(){
-        $data['location'] = 'public/contents-css/user.css';
-        $this->load->view('pages/application');
+        $this->load->model('Mem_model','members');
+        $res = $this->members->getMembers();
+        $data = array('title' => "LoanClerk",'contents' => "pages/review-table",'page' => "Members","links" => "main","res" => $res  );
+        $this->load->view('templates/dashboard-header',$data);
+        $this->load->view('pages/loan-review',$data);
     }
 
     private function check_logged(){

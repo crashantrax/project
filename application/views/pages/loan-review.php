@@ -17,7 +17,7 @@
                     <nav>
                         <ul class="metismenu" id="menu">
                             <li><a href="<?=base_url()?>"><i class="ti-map-alt"></i> <span>Home</span></a></li>
-                            <li><a href="<?= base_url('applicationform');?>"><i class="ti-map-alt"></i><span>Review</span></a></li>
+                            <li><a href="<?= base_url('applicationform');?>"><i class="ti-map-alt"></i><span>Review Loan Application</span></a></li>
                         </ul>
                     </nav>
                 </div>
