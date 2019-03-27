@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.2
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 26, 2019 at 02:13 PM
--- Server version: 10.1.34-MariaDB
--- PHP Version: 7.2.8
+-- Generation Time: Mar 27, 2019 at 09:01 AM
+-- Server version: 10.1.37-MariaDB
+-- PHP Version: 7.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -21,6 +21,27 @@ SET time_zone = "+00:00";
 --
 -- Database: `clms_db`
 --
+
+DELIMITER $$
+--
+-- Procedures
+--
+CREATE DEFINER=`root`@`localhost` PROCEDURE `insertmemberContribution` (IN `MemberAccountID` INT(11), IN `MemberTotalSharesCapital` INT(250), IN `MemTotalBalance` INT(250), IN `YrsofMembership` INT(100))  BEGIN
+	INSERT INTO member_contribution VALUES(NULL, MemberAccountID, MemberTotalSharesCapital, MemTotalBalance, YrsofMembership);         END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `insertmemberElementary` (IN `MemberAccountID` INT(11), IN `ElementaryDate` DATE, IN `CollegeAddressElementary` VARCHAR(250), IN `ElementaryRemarks` VARCHAR(250))  BEGIN
+	INSERT INTO member_elementary VALUES(NULL, MemberAccountID, ElementaryDate, CollegeAddressElementary, ElementaryRemarks);
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `insertmemberHighschool` (IN `MemberAccountID` INT(11), IN `HighschoolDate` DATE, IN `HighschoolAddress` VARCHAR(250), IN `HighschoolRemarks` VARCHAR(250))  BEGIN
+	INSERT INTO member_highschool VALUES(NULL, MemberAccountID, HighschoolDate, HighschoolAddress, HighschoolRemarks);
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `insertmemberPostgrad` (IN `MemberAccountID` INT(11), IN `PostGradDate` DATE, IN `PostGradAddress` VARCHAR(250), IN `PostGradRemarks` VARCHAR(250))  BEGIN
+	INSERT INTO member_postgrad VALUES(NULL, MemberAccountID, PostGradDate, PostGradAddress, PostGradRemarks);
+END$$
+
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -168,6 +189,13 @@ CREATE TABLE `member_contribution` (
   `MemTotalBalance` int(250) NOT NULL,
   `YrsofMembership` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `member_contribution`
+--
+
+INSERT INTO `member_contribution` (`MemberContributionID`, `MemberAccountID`, `MemberTotalSharesCapital`, `MemTotalBalance`, `YrsofMembership`) VALUES
+(1, 12, 124124, 4124124, 2);
 
 -- --------------------------------------------------------
 
@@ -506,7 +534,7 @@ ALTER TABLE `member_college`
 -- AUTO_INCREMENT for table `member_contribution`
 --
 ALTER TABLE `member_contribution`
-  MODIFY `MemberContributionID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `MemberContributionID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `member_depositlogs`
@@ -518,19 +546,19 @@ ALTER TABLE `member_depositlogs`
 -- AUTO_INCREMENT for table `member_elementary`
 --
 ALTER TABLE `member_elementary`
-  MODIFY `UserElementaryID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `UserElementaryID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `member_highschool`
 --
 ALTER TABLE `member_highschool`
-  MODIFY `UserHighschoolID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `UserHighschoolID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `member_postgrad`
 --
 ALTER TABLE `member_postgrad`
-  MODIFY `UserPostGradID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `UserPostGradID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `member_sharelogs`
