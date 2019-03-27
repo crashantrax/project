@@ -53,6 +53,7 @@
     ?>
     <td>
        <!-- <a href="" style="width: 30%" class="btn btn-success">Deposit</a> -->
+       <a href="<?= base_url('loanclerk/edit'); ?>" style="width: 30%;" class="btn btn-warning">Edit</a>
        <a href="javascript:confirmDelete('<?=base_url("cashier/delete/".$row->MemberAccountID); ?>')" class="btn btn-danger">Delete</a>
     </td>
     <?php } ?>

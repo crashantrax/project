@@ -24,6 +24,10 @@ class Loanclerk extends CI_Controller {
         $this->load->view('pages/loan-main',$data);
     }
 
+    private function edit(){
+        $this->load->view('pages/edit');
+    }
+
     private function check_logged(){
         if($this->session->has_userdata('logged_in')==false){
                 redirect();
