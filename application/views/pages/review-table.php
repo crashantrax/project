@@ -4,6 +4,7 @@
                         <th>Account No.</th>
                         <th>Name</th>
                         <th>Date Created</th>
+                        <th>Status</th>
                         <th>Actions</th>
                     </tr>
 
@@ -25,12 +26,12 @@
                         echo "<td>".$row->account_number."</td>";
                         echo "<td><a href=".base_url('cashier/profile').">".ucfirst($row->LastName).", ".ucfirst($row->MiddleName)." ".ucfirst($row->FirstName)."</a></td>";
                         echo "<td>".$row->date_created."</td>";
+                        echo "<td>".$row->Status."</td>";
                         $count++;
                         
                     ?>
                     <td>
-                        <a href="<?=base_url('cashier/withdraw');?>" style="width: 30%" class="btn btn-primary">Withdraw</a>
-                        <a href="<?=base_url('cashier/deposit');?>" style="width: 30%" class="btn btn-success">Deposit</a>
+                        <a href="<?=base_url('loanclerk/edit');?>" style="width: 30%" class="btn btn-warning">Edit</a>
                         <a href="javascript:confirmDelete('<?=base_url("cashier/delete/".$row->MemberAccountID); ?>')" style="width: 30%" class="btn btn-danger">Delete</a>
                     </td>
                     <?php } ?>
