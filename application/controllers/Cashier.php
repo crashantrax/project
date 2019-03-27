@@ -55,12 +55,14 @@ class Cashier extends CI_Controller {
     }
 
     public function delete($id){
+        $this->check_logged();
         $this->load->model('Register','register');
         $this->register->delete($id);
         redirect('cashier');
     }
     public function register_members(){
         //member profile
+        $this->check_logged();
 
         $this->load->model('Register','register');
         $fname = $this->input->post('first_name');  
