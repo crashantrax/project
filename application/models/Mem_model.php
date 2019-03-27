@@ -8,6 +8,16 @@ class Mem_model extends CI_Model {
         	return $query;
 	}
 
+        public function getManager() {
+                $query = $this->db->get('staff_profile');
+                return $query;
+        }
+
+        public function getloan() {
+                $query = $this->db->get('loanlogs');
+                return $query;
+        }
+
 	public function getEduc($profileID) {
         	$this->db->where('user_account_id',$profileID);
         	$query = $this->db->get('tbluser_education');
