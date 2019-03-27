@@ -260,7 +260,7 @@
                     <div class="col-sm-6 clearfix">
                         <div class="user-profile pull-right">
                             <img style="border-radius: 50%;border:1px solid black;padding: 5px;" class="avatar user-thumb" src="public/contents-css/logo/admin.png" alt="avatar">
-                            <h4 class="user-name dropdown-toggle" data-toggle="dropdown"> LoanClerk <i class="fa fa-angle-down"></i></h4>
+                            <h4 class="user-name dropdown-toggle" data-toggle="dropdown" style="font-size: 13px;"> LoanClerk <i class="fa fa-angle-down"></i></h4>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="<?= base_url(); ?> ">Message</a>
                                 <a class="dropdown-item" href="<?= base_url(); ?> ">Settings</a>
