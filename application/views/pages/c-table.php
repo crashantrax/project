@@ -23,7 +23,7 @@
 
                         echo "<tr class=".$num."><td>".$count."</td>";
                         echo "<td>".$row->account_number."</td>";
-                        echo "<td><a href=''>".$row->FirstName." ".$row->MiddleName." ".$row->LastName."</a></td>";
+                        echo "<td><a href=''>".ucfirst($row->FirstName)." ".ucfirst($row->MiddleName)." ".ucfirst($row->LastName)."</a></td>";
                         echo "<td>".$row->date_created."</td>";
                         $count++;
                         
