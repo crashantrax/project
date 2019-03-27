@@ -1,11 +1,11 @@
 <div class="main-container">
     <form id="regForm" method="POST" action="<?php echo base_url('cashier/register_members'); ?>">
   <!-- One "tab" for each step in the form: -->
-  <div class="tab" style="background: #ececec;">
-            <table align="center" border="0" class="table" >
+  <div class="tab">
+            <table align="center" border="0" class="table">
                         <tr>
                             <tr>
-                                <th colspan="3"><div align="center">Personal Information (Required)</div></th>
+                                <th colspan="3"><div align="center">Personal Information</div></th>
                             </tr>
                             <tr>
                                 
@@ -145,11 +145,11 @@
         </table>
   </div>
 
-  <div class="tab" style="background: #ececec;">
+  <div class="tab">
      <table align="center" border="0" class="table">
                         <tr>
                             <tr>
-                                <th colspan="3"><div align="center">Educational Information (Optional)</div></th>
+                                <th colspan="3"><div align="center">Educational Information</div></th>
                             </tr>
                             <tr>
                                 
@@ -220,11 +220,11 @@
                             
         </table>
   </div>
-  <div class="tab" style="background: #ececec;">
+  <div class="tab">
     <table align="center" border="0" class="table">
                         <tr>
                             <tr>
-                                <th colspan="3"><div align="center">Family Background (Optional)</div></th>
+                                <th colspan="3"><div align="center">Family Background</div></th>
                             </tr>
                             <tr>
                                 
@@ -315,11 +315,11 @@
 
 
 
-  <div class="tab" style="background: #ececec;">
+  <div class="tab">
      <table align="center" border="0" class="table">
                         <tr>
                             <tr>
-                                <th colspan="3"><div align="center">Employment Information (Required)</div></th>
+                                <th colspan="3"><div align="center">Employment Information</div></th>
                             </tr>
                             <tr>
                                 
@@ -329,7 +329,7 @@
                                 </td>
                                 <td colspan="2">
                                     <div class="register-header">Address:</div>
-                                    <div class="register-input"><input class="form-control"   type="text" name="employ_address" style=" width: 96%;"></div>
+                                    <div class="register-input"><input class="form-control"   type="text" name="employ_address"></div>
                                 </td>
                             </tr>
                             <tr>
@@ -403,7 +403,7 @@
 
 
 
-  <div class="tab" style="background: #ececec;">
+  <div class="tab">
      <table align="center" border="0" class="table">
                         <tr>
                             <tr>
