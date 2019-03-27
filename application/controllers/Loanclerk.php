@@ -19,7 +19,7 @@ class Loanclerk extends CI_Controller {
     private function main_contents(){
         $this->load->model('Mem_model','members');
         $res = $this->members->getMembers();
-        $data = array('title' => "LoanClerk",'contents' => "pages/l-table",'page' => "LoanClerk","links" => "main","res");
+        $data = array('title' => "LoanClerk",'contents' => "pages/l-table",'page' => "LoanClerk","links" => "main","res" => $res);
         $this->load->view('templates/dashboard-header',$data);
         $this->load->view('pages/loan-main',$data);
     }
@@ -40,7 +40,10 @@ class Loanclerk extends CI_Controller {
             }else if ('manager'==$userType){
                 redirect('manager');
             }else{
-                echo "Access Forbidden! \n Authorized Personnel Only";
+                echo '<script type="text/javascript">'; 
+                echo 'alert("Access Forbidden!");'; 
+                echo 'window.location.href = "Error404";';
+                echo '</script>';  
                 exit;
             }
         }
