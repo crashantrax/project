@@ -116,17 +116,6 @@ class Cashier extends CI_Controller {
 
     }
 
-
-
-
-
-
-
-
-
-
-
-
     private function main_contents(){
         $this->load->model('Mem_model','members');
         $res = $this->members->getMembers();
@@ -147,7 +136,11 @@ class Cashier extends CI_Controller {
             }else if ('manager'==$userType){
                 redirect('manager');
             }else{
-                echo "Access Forbidden! \n Authorized Personnel Only";
+                echo '<script type="text/javascript">'; 
+                echo 'alert("Access Forbidden!");'; 
+                echo 'window.location.href = "Error404";';
+                echo '</script>';  
+
                 exit;
             }
         }
