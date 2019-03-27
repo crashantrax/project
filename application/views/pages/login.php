@@ -17,7 +17,6 @@
 								<div class="click-container">
 									<button type="submit" class="btn btn-login">Login</button>
 									<div class="link-container">
-										<a class="link" href="<?php echo base_url('register') ?>">Create Account</a>
 										<a class="link" href="forgot.php">Forgot Password</a>
 									</div>	
 								</div>

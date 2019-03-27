@@ -57,8 +57,8 @@ class Stats extends CI_Controller {
 
         private function setSession($array){
             $data = array(
-                'id'  => $array[0]->user_account_id,
-                'user_type' => $array[0]->user_type,
+                'id'  => $array[0]->UserAccountID,
+                'user_type' => $array[0]->Usertype,
                 'logged_in' => TRUE
             );
             $this->session->set_userdata($data);

@@ -1,28 +1,39 @@
 <table class="table">
                     <tr>
+                        <th>#</th>
                         <th>Account No.</th>
                         <th>Name</th>
-                         <th>Date Created</th>
+                        <th>Date Created</th>
                         <th>Actions</th>
                     </tr>
-                    <tr>
-                        <td>20-2232-1233</td>
-                        <td><a href="123">John Lloyd,Cruz</a></td>
-                        <td>01-24-2012</td>
-                        <td><button>Edit</button><button>Account Status</button><button>Click</button></td>
-                    </tr>
-                    <tr>
-                        <td>20-2313-1233</td>
-                        <td><a href="123">Bea Lloyd,Cruz</a></td>
-                        <td>01-24-2002</td>
-                        <td><button>Edit</button><button>Account Status</button><button>Click</button></td>
-                    </tr>
-                    <tr>
-                        <td>20-3333-1233</td>
-                        <td><a href="123">John Sarah,Cruz</a></td>
-                        <td>01-24-2018</td>
-                        <td><button>Edit</button><button>Account Status</button><button>Click</button></td>
-                    </tr>
-                    
 
+
+                    <?php
+                    $count=1;
+                    $counter=1;
+                    foreach ($res->result() as $row){
+                        if($counter==1){
+                            $num = "color";
+                            $counter=0;
+                        }
+                        else{
+                            $num = "none";
+                            $counter=1;
+                        }
+
+                        echo "<tr class=".$num."><td>".$count."</td>";
+                        echo "<td>".$row->account_number."</td>";
+                        echo "<td><a href=''>".$row->FirstName." ".$row->MiddleName." ".$row->LastName."</a></td>";
+                        echo "<td>".$row->date_created."</td>";
+                        $count++;
+                        
+                    ?>
+                    <td>
+                        <a href="" style="width: 30%" class="btn btn-primary">Withdraw</a>
+                        <a href="" style="width: 30%" class="btn btn-success">Deposit</a>
+                        <a href="" style="width: 30%" class="btn btn-danger">Delete</a>
+                    </td>
+                    <?php } ?>
+                    </tr>
                 </table>
+               

@@ -2,26 +2,18 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Register extends CI_Controller {
 	 public function index(){
-	      $this->main_contents();
+	    echo "none";
         }
 
-
+/*
         private function main_contents(){
         $data = array('title' => "Cahshiering",'contents' => "pages/c-addMember",'page' => "Registration","links" => "register" );
         $this->load->view('templates/dashboard-header',$data);
         $this->load->view('pages/cashier-main',$data);
-        }
+        }*/
 
 
-        public function register_stats($error,$stats)
-        {     
-        	$data['location'] = "public/contents-css/profile.css";
-            $data['error_message'] = $error;
-            $data['stats'] = $stats;
-            $this->load->view('templates/header',$data);
-            $this->load->view('pages/register-submit',$data);
-            $this->load->view('templates/footer');
-        }
+      
         public function register_submit()
         {       
                 $this->load->library('form_validation');
@@ -29,6 +21,7 @@ class Register extends CI_Controller {
                 $this->form_validation->set_rules('password','Password','required');
                 if($this->form_validation->run()){
                         $this->load->model('Login_model');
+                        $stat = $this->input->post('stats');
                         $user = $this->input->post('username');
                         $pass = $this->input->post('password');
                         $fname = $this->input->post('first_name');  

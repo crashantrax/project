@@ -5,7 +5,7 @@ class Login_model extends CI_Model {
         public function try_login($user,$pass) {
        	 	$this->db->where('username',$user);
             $this->db->where('password',$pass);
-            $query = $this->db->get('tbluser_accounts');
+            $query = $this->db->get('staff_acount');
             return $query;
             
         }

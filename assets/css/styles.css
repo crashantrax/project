@@ -94,6 +94,11 @@
     background: #F3F8FB;
 }
 
+.main-container{
+       margin-top: 15px;
+
+}
+
 .main-content-inner {
     padding: 0 30px 50px;
 }
@@ -2827,3 +2832,55 @@ table.dataTable thead td {
 }
 
 /*-------------------- END Offset Sidebar ------------------- */
+
+
+
+
+
+
+
+/* Mark input boxes that gets an error on validation: */
+input.invalid {
+  background-color: #ffdddd;
+}
+/* Hide all steps by default: */
+.tab {
+  display: none;
+}
+
+button {
+  background-color: #4CAF50;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 17px;
+  font-family: Raleway;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+#prevBtn {
+  background-color: #bbbbbb;
+}
+
+/* Make circles that indicate the steps of the form: */
+.btn.focus, .btn:focus {
+    outline: 0;
+     box-shadow: 0 0 0 0.0 rgba(0,123,255,.25);
+}
+
+
+element.style {
+}
+.btn-success:not(:disabled):not(.disabled).active:focus, .btn-success:not(:disabled):not(.disabled):active:focus, .show>.btn-success.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.0rem rgba(40,167,69,.5);
+}
+.register-input{
+        margin-top: 10px;
+}
+.color{
+    background: #f2e2dd;
+}

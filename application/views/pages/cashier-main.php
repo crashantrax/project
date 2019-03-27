@@ -19,7 +19,7 @@
                             
                           
                             <li><a href="<?=base_url()?>"><i class="ti-map-alt"></i> <span>Home</span></a></li>
-                            <li><a href="<?= base_url('register') ?>"><i class="ti-map-alt"></i> <span>Create Account</span></a></li>
+                            <li><a href="<?= base_url('cashier/register') ?>"><i class="ti-map-alt"></i> <span>Create Account</span></a></li>
                            
                             
                         </ul>
@@ -85,7 +85,7 @@
                     </div>
                     <div class="col-sm-6 clearfix">
                         <div class="user-profile pull-right">
-                            <img class="avatar user-thumb" src="public/contents-css/logo/admin.png" alt="avatar">
+                            <img class="avatar user-thumb" src="<?=base_url('public/contents-css/logo/admin.png')?>" alt="avatar">
                             <h4 class="user-name dropdown-toggle" data-toggle="dropdown"> Admin <i class="fa fa-angle-down"></i></h4>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="<?= base_url(); ?> ">Message</a>
@@ -105,16 +105,17 @@
                 ?>
             </div>
     </div>
+    <script src="<?=base_url('public/contents-script/next.js')?>"></script>
     <!-- offset area end -->
     <!-- jquery latest version -->
-    <script src="assets/js/vendor/jquery-2.2.4.min.js"></script>
+    <script src="<?=base_url('assets/js/vendor/jquery-2.2.4.min.js')?>"></script>
     <!-- bootstrap 4 js -->
-    <script src="assets/js/popper.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/owl.carousel.min.js"></script>
-    <script src="assets/js/metisMenu.min.js"></script>
-    <script src="assets/js/jquery.slimscroll.min.js"></script>
-    <script src="assets/js/jquery.slicknav.min.js"></script>
+    <script src="<?=base_url('assets/js/popper.min.js')?>"></script>
+    <script src="<?=base_url('assets/js/bootstrap.min.js')?>"></script>
+    <script src="<?=base_url('assets/js/owl.carousel.min.js')?>"></script>
+    <script src="<?=base_url('assets/js/metisMenu.min.js')?>"></script>
+    <script src="<?=base_url('assets/js/jquery.slimscroll.min.js')?>"></script>
+    <script src="<?=base_url('assets/js/jquery.slicknav.min.js')?>"></script>
 
     <!-- start chart js -->
     
@@ -125,19 +126,20 @@
     <!-- all pie chart -->
 
     <!-- others plugins -->
-    <script src="assets/js/plugins.js"></script>
-    <script src="assets/js/scripts.js"></script>
+    <script src="<?=base_url('assets/js/plugins.js')?>"></script>
+    <script src="<?=base_url('assets/js/scripts.js')?>"></script>
 
 
 
-    <script src="assets/vendor/jquery/jquery.min.js"></script>
-    <script src="assets/vendor/jquery-validation/dist/jquery.validate.min.js"></script>
-    <script src="assets/vendor/jquery-validation/dist/additional-methods.min.js"></script>
-    <script src="assets/vendor/jquery-steps/jquery.steps.min.js"></script>
-    <script src="assets/vendor/minimalist-picker/dobpicker.js"></script>
-    <script src="assets/vendor/nouislider/nouislider.min.js"></script>
-    <script src="assets/vendor/wnumb/wNumb.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script src="<?=base_url('assets/vendor/jquery/jquery.min.js')?>"></script>
+    <script src="<?=base_url('assets/vendor/jquery-validation/dist/jquery.validate.min.js')?>"></script>
+    <script src="<?=base_url('assets/vendor/jquery-validation/dist/additional-methods.min.js')?>"></script>
+    <script src="<?=base_url('assets/vendor/jquery-steps/jquery.steps.min.js')?>"></script>
+    <script src="<?=base_url('assets/vendor/minimalist-picker/dobpicker.js')?>"></script>
+    <script src="<?=base_url('assets/vendor/nouislider/nouislider.min.js')?>"></script>
+    <script src="<?=base_url('assets/vendor/wnumb/wNumb.js')?>"></script>
+    <script src="<?=base_url('assets/js/main.js')?>"></script>
+
 </body>
 
 </html>

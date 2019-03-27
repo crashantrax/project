@@ -1,11 +1,13 @@
 <?php
-class Users_model extends CI_Model {
+defined('BASEPATH') OR exit('No direct script access allowed');
 
-        public function getProfile($profileID) {
-        	$this->db->where('user_account_id',$profileID);
-        	$query = $this->db->get('tbluser_profile');
+class Mem_model extends CI_Model {
+
+        public function getMembers() {
+        	$query = $this->db->get('member_account');
         	return $query;
 	}
+
 	public function getEduc($profileID) {
         	$this->db->where('user_account_id',$profileID);
         	$query = $this->db->get('tbluser_education');
