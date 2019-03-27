@@ -17,8 +17,11 @@ class Loanclerk extends CI_Controller {
 
 
     private function main_contents(){
-        $data['location'] = 'public/contents-css/user.css';
-        $this->load->view('srtdash/index3');
+        $this->load->model('Mem_model','members');
+        $res = $this->members->getMembers();
+        $data = array('title' => "LoanClerk",'contents' => "pages/l-table",'page' => "Members","links" => "main","res" => $res  );
+        $this->load->view('templates/dashboard-header',$data);
+        $this->load->view('pages/loan-main',$data);
     }
 
     private function check_logged(){
