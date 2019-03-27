@@ -5,7 +5,7 @@
             <table align="center" border="0" class="table">
                         <tr>
                             <tr>
-                                <th colspan="3"><div align="center">Personal Information</div></th>
+                                <th colspan="3"><div align="center">Personal Information (Required)</div></th>
                             </tr>
                             <tr>
                                 
@@ -149,7 +149,7 @@
      <table align="center" border="0" class="table">
                         <tr>
                             <tr>
-                                <th colspan="3"><div align="center">Educational Information</div></th>
+                                <th colspan="3"><div align="center">Educational Information (Optional)</div></th>
                             </tr>
                             <tr>
                                 
@@ -224,7 +224,7 @@
     <table align="center" border="0" class="table">
                         <tr>
                             <tr>
-                                <th colspan="3"><div align="center">Family Background</div></th>
+                                <th colspan="3"><div align="center">Family Background (Optional)</div></th>
                             </tr>
                             <tr>
                                 
@@ -319,7 +319,7 @@
      <table align="center" border="0" class="table">
                         <tr>
                             <tr>
-                                <th colspan="3"><div align="center">Employment Information</div></th>
+                                <th colspan="3"><div align="center">Employment Information (Required)</div></th>
                             </tr>
                             <tr>
                                 
