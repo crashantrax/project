@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 28, 2019 at 04:30 PM
+-- Generation Time: Mar 28, 2019 at 04:58 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -196,7 +196,7 @@ CREATE TABLE `member_contribution` (
 --
 
 INSERT INTO `member_contribution` (`MemberContributionID`, `MemberTotalSharesCapital`, `MemTotalBalance`, `YrsofMembership`, `MemberAccountID`) VALUES
-(1, 2000, 432, 2, 74),
+(1, 2000, 332, 2, 74),
 (2, 2000, 2212, 3, 12);
 
 -- --------------------------------------------------------
@@ -226,7 +226,7 @@ DELIMITER $$
 CREATE TRIGGER `depositlogsUpdate` AFTER INSERT ON `member_depositlogs` FOR EACH ROW BEGIN
 	DECLARE deposit int(250);
 	
-    SELECT MemberDepositAmount INTO deposit FROM member_depositlogs WHERE MemberAccountID = NEW.MemberAccountID;
+    SELECT MemberDepositAmount INTO deposit FROM member_depositlogs WHERE MemberDepositLogsID = NEW.MemberDepositLogsID  ;
     
 	UPDATE member_contribution
     SET MemTotalBalance = MemTotalBalance + deposit
@@ -348,7 +348,8 @@ INSERT INTO `member_withdrawallogs` (`WithdrawalProfileID`, `WithdrawalAmount`, 
 (1, 100, '2019-03-28', 74),
 (6, 123, '2019-03-28', 2),
 (12, 100, '2019-03-28', 99),
-(19, 100, '2019-03-28', 74);
+(19, 100, '2019-03-28', 74),
+(126, 100, '2019-03-28', 74);
 
 --
 -- Triggers `member_withdrawallogs`
@@ -357,7 +358,7 @@ DELIMITER $$
 CREATE TRIGGER `withdrawbalanceUpdate` AFTER INSERT ON `member_withdrawallogs` FOR EACH ROW BEGIN
 	DECLARE withdraw int(250);
 	
-    SELECT WithdrawalAmount INTO withdraw FROM member_withdrawallogs WHERE MemberAccountID = NEW.MemberAccountID;
+    SELECT WithdrawalAmount INTO withdraw FROM member_withdrawallogs WHERE MemberAccountID = NEW.MemberAccountID and WithdrawalProfileID = NEW.WithdrawalProfileID ;
     
 	UPDATE member_contribution
     SET MemTotalBalance = MemTotalBalance - withdraw
@@ -640,7 +641,7 @@ ALTER TABLE `member_sharelogs`
 -- AUTO_INCREMENT for table `member_withdrawallogs`
 --
 ALTER TABLE `member_withdrawallogs`
-  MODIFY `WithdrawalProfileID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `WithdrawalProfileID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=127;
 --
 -- AUTO_INCREMENT for table `paymentlogs`
 --
