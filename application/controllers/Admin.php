@@ -13,7 +13,14 @@ class Admin extends CI_Controller {
     	redirect();
     }
 
-
+    public function profile(){
+        $this->check_logged();
+        $this->load->model('Mem_model','admin');
+        $res = $this->admin->getManager();
+        $data = array('title' => "Admin",'contents' => "pages/profile-table",'page' => "Members","links" => "main","res" => $res  );
+        $this->load->view('templates/dashboard-header',$data);
+        $this->load->view('pages/cashier-main',$data);
+    }
 
 
     private function main_contents(){

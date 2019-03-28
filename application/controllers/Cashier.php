@@ -30,14 +30,11 @@ class Cashier extends CI_Controller {
 
     public function profile(){
         $this->check_logged();
-        $this->load->model('Register','reg');
-       
-
-        $res = $this->reg->viewMemCon($this->input->get_post('id'));
-        $data = array('title' => "View",'contents' => "pages/member-savings",'page' => "View Member","links" => "members","res" => $res );
+        $this->load->model('Mem_model','cashier');
+        $res = $this->cashier->getManager();
+        $data = array('title' => "Cashier",'contents' => "pages/profile-table",'page' => "Members","links" => "main","res" => $res  );
         $this->load->view('templates/dashboard-header',$data);
         $this->load->view('pages/cashier-main',$data);
-
     }
 
     public function deposit(){
