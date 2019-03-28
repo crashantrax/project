@@ -80,6 +80,12 @@
                                  else if($links == "members"){
                                      echo "<li><span>Members</span></li>";
                                  }
+                                 else if($links == "deposit"){
+                                     echo "<li><span>Deposit</span></li>";
+                                 }
+                                 else if($links == "withdraw"){
+                                     echo "<li><span>Withdraw</span></li>";
+                                 }
                                 ?>
                                
 

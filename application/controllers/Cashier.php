@@ -26,16 +26,32 @@ class Cashier extends CI_Controller {
     }
 
     public function register(){
+        $this->check_logged();
         $data = array('title' => "Cahshiering",'contents' => "pages/c-addMember",'page' => "Registration","links" => "register" );
         $this->load->view('templates/dashboard-header',$data);
         $this->load->view('pages/cashier-main',$data);
     }
 
     public function profile(){
+        $this->check_logged();
         $data = array('title' => "View",'contents' => "pages/member-savings",'page' => "View Member","links" => "members" );
         $this->load->view('templates/dashboard-header',$data);
         $this->load->view('pages/cashier-main',$data);
 
+    }
+
+    public function deposit(){
+        $this->check_logged();
+        $data = array('title' => "Deposit",'contents' => "pages/deposit-form",'page' => "Deposits","links" => "deposit" );
+        $this->load->view('templates/dashboard-header',$data);
+        $this->load->view('pages/cashier-main',$data);
+    }
+
+    public function withdraw(){
+        $this->check_logged();
+        $data = array('title' => "Withdraw",'contents' => "pages/withdraw-form",'page' => "Withdraw","links" => "withdraw" );
+        $this->load->view('templates/dashboard-header',$data);
+        $this->load->view('pages/cashier-main',$data);
     }
 
     public function delete($id){

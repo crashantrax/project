@@ -1,8 +1,8 @@
 <div class="main-container">
     <form id="regForm" method="POST" action="<?php echo base_url('cashier/register_members'); ?>">
   <!-- One "tab" for each step in the form: -->
-  <div class="tab">
-            <table align="center" border="0" class="table">
+  <div class="tab" style="background: #ececec;">
+            <table align="center" border="0" class="table" >
                         <tr>
                             <tr>
                                 <th colspan="3"><div align="center">Personal Information (Required)</div></th>
@@ -145,7 +145,7 @@
         </table>
   </div>
 
-  <div class="tab">
+  <div class="tab" style="background: #ececec;">
      <table align="center" border="0" class="table">
                         <tr>
                             <tr>
@@ -220,7 +220,7 @@
                             
         </table>
   </div>
-  <div class="tab">
+  <div class="tab" style="background: #ececec;">
     <table align="center" border="0" class="table">
                         <tr>
                             <tr>
@@ -315,7 +315,7 @@
 
 
 
-  <div class="tab">
+  <div class="tab" style="background: #ececec;">
      <table align="center" border="0" class="table">
                         <tr>
                             <tr>
@@ -329,7 +329,7 @@
                                 </td>
                                 <td colspan="2">
                                     <div class="register-header">Address:</div>
-                                    <div class="register-input"><input class="form-control"   type="text" name="employ_address"></div>
+                                    <div class="register-input"><input class="form-control"   type="text" name="employ_address" style=" width: 96%;"></div>
                                 </td>
                             </tr>
                             <tr>
@@ -403,7 +403,7 @@
 
 
 
-  <div class="tab">
+  <div class="tab" style="background: #ececec;">
      <table align="center" border="0" class="table">
                         <tr>
                             <tr>

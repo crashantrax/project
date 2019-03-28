@@ -2884,3 +2884,11 @@ element.style {
 .color{
     background: #f2e2dd;
 }
+.container1{
+    width: 50%;
+    height: 305px;
+    position: relative;
+    left: 50%;
+    background: #ececec;
+    transform: translate(-50%,10%);
+}

@@ -21,17 +21,16 @@
                             $num = "none";
                             $counter=1;
                         }
-
                         echo "<tr id='col' class=".$num."><td>".$count."</td>";
                         echo "<td>".$row->account_number."</td>";
-                        echo "<td><a href=".base_url('cashier/profile').">".ucfirst($row->FirstName)." ".ucfirst($row->MiddleName)." ".ucfirst($row->LastName)."</a></td>";
+                        echo "<td><a href=".base_url('cashier/profile').">".ucfirst($row->LastName).", ".ucfirst($row->MiddleName)." ".ucfirst($row->FirstName)."</a></td>";
                         echo "<td>".$row->date_created."</td>";
                         $count++;
                         
                     ?>
                     <td>
-                        <a href="" style="width: 30%" class="btn btn-primary">Withdraw</a>
-                        <a href="" style="width: 30%" class="btn btn-success">Deposit</a>
+                        <a href="<?=base_url('cashier/withdraw');?>" style="width: 30%" class="btn btn-primary">Withdraw</a>
+                        <a href="<?=base_url('cashier/deposit');?>" style="width: 30%" class="btn btn-success">Deposit</a>
                         <a href="javascript:confirmDelete('<?=base_url("cashier/delete/".$row->MemberAccountID); ?>')" style="width: 30%" class="btn btn-danger">Delete</a>
                     </td>
                     <?php } ?>
