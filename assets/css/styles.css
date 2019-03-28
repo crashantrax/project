@@ -2061,6 +2061,46 @@ label {
 /*-------------------- END Icons ------------------- */
 
 
+/*---------------STYLE TEXT by Patrick Tiu----------------------*/
+
+.tex {
+     font-size:55px;
+     text-shadow:0 0 5px #2C7DCD, 0 0 10px #298A9B, 0 0 15px #585E5E, 0 0 20px #4A4D4D, 0 0 30px #313232, 0 0 40px #333535, 0 0 55px #353736, 0 0 75px #2D4140;
+     font-family:'Orbitron',sans-serif;
+     text-align: center;
+     -webkit-animation-name: blinker;
+     -webkit-animation-duration: 1s;
+     -webkit-animation-timing-function: linear;
+     -webkit-animation-iteration-count: infinite;
+
+     -moz-animation-name: blinker;
+     -moz-animation-duration: 1s;
+     -moz-animation-timing-function: linear;
+     -moz-animation-iteration-count: infinite;
+
+     animation-name: blinker;
+     animation-duration: 1s;
+     animation-timing-function: linear;
+     animation-iteration-count: infinite;
+     }
+    @-moz-keyframes blinker {  
+        0% { opacity: 1.0; }
+        50% { opacity: 0.0; }
+        100% { opacity: 1.0; }
+    }
+
+    @-webkit-keyframes blinker {  
+        0% { opacity: 1.0; }
+        50% { opacity: 0.0; }
+        100% { opacity: 1.0; }
+    }
+
+    @keyframes blinker {  
+        0% { opacity: 1.0; }
+        50% { opacity: 0.0; }
+        100% { opacity: 1.0; }
+    }
+
 /*-------------------- 19. Table Basic ------------------- */
 
 .single-table .table {

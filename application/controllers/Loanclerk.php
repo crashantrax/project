@@ -13,13 +13,15 @@ class Loanclerk extends CI_Controller {
     	redirect();
     }
 
-
+    public function error404(){
+        $this->load->view('templates/error');
+    }
 
 
     private function main_contents(){
         $this->load->model('Mem_model','members');
         $res = $this->members->getMembers();
-        $data = array('title' => "LoanClerk",'contents' => "pages/l-table",'page' => "Members","links" => "main","res" => $res  );
+        $data = array('title' => "LoanClerk",'contents' => "pages/l-table",'page' => "LoanClerk","links" => "main","res" => $res);
         $this->load->view('templates/dashboard-header',$data);
         $this->load->view('pages/loan-main',$data);
     }
@@ -32,20 +34,27 @@ class Loanclerk extends CI_Controller {
         if($this->session->has_userdata('logged_in')==false){
                 redirect();
         }else if($this->session->userdata('user_type')!='loanclerk'){
-            $userType = $this->session->userdata('user_type');
-            if('cashier'==$userType){
-                redirect('cashier');
-            }else if ('loanclerk'==$userType){
-                redirect('clerk');
-            }else if ('manager'==$userType){
-                redirect('manager');
-            }else{
-                echo "Access Forbidden! \n Authorized Personnel Only";
-                exit;
-            }
+            echo '<script type="text/javascript">'; 
+            echo 'alert("Access Forbidden!");'; 
+            echo 'window.location.href = "Error404";';
+            echo '</script>';
+            // $userType = $this->session->userdata('user_type');
+            // if('cashier'==$userType){
+            //     redirect('cashier');
+            // }else if ('admin'==$userType){
+            //     redirect('admin');
+            // }else if ('manager'==$userType){
+            //     redirect('manager');
+            // }else{
+            //     echo '<script type="text/javascript">'; 
+            //     echo 'alert("Access Forbidden!");'; 
+            //     echo 'window.location.href = "Error404";';
+            //     echo '</script>';
+            //     exit;
+            // }
         }
         else{
-                return true;
+            return true;
         }
            
     }

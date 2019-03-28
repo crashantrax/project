@@ -1,12 +1,11 @@
-<div style="margin-top: 2%;background-color:#4db6ac; ">
-<div style="width: 100%;background-color: #4db6ac;text-align: center;padding: 10px;"><h4>History</h4></div>
-<table class="table" id="member" style="background-color: #4db6ac;margin-top: 0%;">
+<table class="table" id="member">
                     <tr>
                         <th>#</th>
                         <th>Account No.</th>
                         <th>Name</th>
                         <th>Date Created</th>
                         <th>Status</th>
+                        <th>Actions</th>
                     </tr>
 
 
@@ -31,7 +30,10 @@
                         $count++;
                         
                     ?>
-
+                    <td>
+                        <a href="<?=base_url('loanclerk/edit');?>" style="width: 30%" class="btn btn-warning">Edit</a>
+                        <a href="javascript:confirmDelete('<?=base_url("cashier/delete/".$row->MemberAccountID); ?>')" style="width: 30%" class="btn btn-danger">Delete</a>
+                    </td>
                     <?php } ?>
                     <?php }else{
                         echo "<tr><td>0 Results<td>";
@@ -39,5 +41,4 @@
                     </tr>
 
                 </table>
-            </div>
                
