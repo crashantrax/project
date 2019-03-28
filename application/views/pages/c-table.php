@@ -23,7 +23,7 @@
                         }
                         echo "<tr id='col' class=".$num."><td>".$count."</td>";
                         echo "<td>".$row->account_number."</td>";
-                        echo "<td><a href=".base_url('cashier/profile').">".ucfirst($row->LastName).", ".ucfirst($row->MiddleName)." ".ucfirst($row->FirstName)."</a></td>";
+                        echo "<td><a href=".base_url("cashier/profile/?id=$row->MemberAccountID").">".ucfirst($row->LastName).", ".ucfirst($row->MiddleName)." ".ucfirst($row->FirstName)."</a></td>";
                         echo "<td>".$row->date_created."</td>";
                         $count++;
                         
