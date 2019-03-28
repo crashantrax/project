@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Mem_model extends CI_Model {
 
         public function getMembers() {
-        	$query = $this->db->get('member_account');
+        	$query = $this->db->get('members');
         	return $query;
 	}
 

@@ -29,8 +29,8 @@
                         
                     ?>
                     <td>
-                        <a href="<?=base_url('cashier/withdraw');?>" style="width: 30%" class="btn btn-primary">Withdraw</a>
-                        <a href="<?=base_url('cashier/deposit');?>" style="width: 30%" class="btn btn-success">Deposit</a>
+                        <a href="<?=base_url("cashier/withdraw/?id=$row->MemberAccountID");?>" style="width: 30%" class="btn btn-primary">Withdraw</a>
+                        <a href="<?=base_url("cashier/deposit/?id=$row->MemberAccountID");?>" style="width: 30%" class="btn btn-success">Deposit</a>
                         <a href="javascript:confirmDelete('<?=base_url("cashier/delete/".$row->MemberAccountID); ?>')" style="width: 30%" class="btn btn-danger">Delete</a>
                     </td>
                     <?php } ?>
