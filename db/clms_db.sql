@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.2
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 26, 2019 at 02:13 PM
--- Server version: 10.1.34-MariaDB
--- PHP Version: 7.2.8
+-- Generation Time: Mar 27, 2019 at 10:44 AM
+-- Server version: 10.1.37-MariaDB
+-- PHP Version: 7.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -22,20 +22,50 @@ SET time_zone = "+00:00";
 -- Database: `clms_db`
 --
 
--- --------------------------------------------------------
-
+DELIMITER $$
 --
--- Table structure for table `children`
+-- Procedures
 --
+CREATE DEFINER=`root`@`localhost` PROCEDURE `insertfamilyInfo` (IN `MemberAccountID` INT(11), IN `spouse_fn` VARCHAR(250), IN `spouse_mn` VARCHAR(250), IN `spouse_ln` VARCHAR(250), IN `Occupation` VARCHAR(100), IN `CapitalGrossIncome` INT(250), IN `DateofBirth` DATE, IN `Position` VARCHAR(100), IN `NoofChildren` INT(50))  BEGIN
+	INSERT INTO family_info VALUES(NULL, MemberAccountID, spouse_fn, spouse_mn, spouse_ln, Occupation, CapitalGrossIncome, DateofBirth, Position, NoofChildren);
+END$$
 
-CREATE TABLE `children` (
-  `ChildrenID` int(11) NOT NULL,
-  `Family_InfoID` int(11) NOT NULL,
-  `ChildrenName(FN/MN/LN` varchar(250) NOT NULL,
-  `ChildrenAge` int(11) NOT NULL,
-  `ChildrenType(W/S/B)` varchar(100) NOT NULL,
-  `ChildrenTypeAddress` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `insertLoan` (IN `LoanName` VARCHAR(250), IN `LoanInterest` INT(250), IN `LoanServiceFee` INT(250), IN `LoanShareCapital` INT(250), IN `LoanAmountLimit` INT(250))  BEGIN
+	INSERT INTO loan VALUES(NULL, LoanName, LoanInterest, LoanServiceFee, LoanShareCapital, LoanAmountLimit);
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `insertmemberAccount` (IN `account_number` INT(250), IN `FirstName` VARCHAR(250), IN `MiddleName` VARCHAR(250), IN `LastName` VARCHAR(250), IN `TelNo` VARCHAR(20), IN `PlaceofBirth` VARCHAR(250), IN `DOB` DATE, IN `Nationality` VARCHAR(50), IN `Sex` ENUM('Male','Female'), IN `CivilStatus` VARCHAR(50), IN `BloodType` VARCHAR(50), IN `Address` VARCHAR(250), IN `Status` VARCHAR(50), IN `date_created` DATE, IN `email` VARCHAR(100))  BEGIN
+	INSERT INTO member_account VALUES(account_number, NULL, FirstName, MiddleName, LastName, TelNo, PlaceofBirth, DOB, Nationality, Sex, CivilStatus, BloodType, Address, Status, date_created, email);
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `insertmemberBusiness` (IN `MemberAccountID` INT(11), IN `TypeOfBusiness` VARCHAR(250), IN `Address` VARCHAR(250), IN `Ownership` VARCHAR(250), IN `Capital` INT(100), IN `TradeName` VARCHAR(100), IN `TelNo` INT(100), IN `YearStarted` INT(50), IN `GrossIncome` INT(100))  BEGIN
+	INSERT INTO member_business VALUES(NULL, MemberAccountID, TypeOfBusiness, Address, Ownership, Capital, TradeName, TelNo, YearStarted, GrossIncome);
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `insertmemberContribution` (IN `MemberAccountID` INT(11), IN `MemberTotalSharesCapital` INT(250), IN `MemTotalBalance` INT(250), IN `YrsofMembership` INT(100))  BEGIN
+	INSERT INTO member_contribution VALUES(NULL, MemberAccountID, MemberTotalSharesCapital, MemTotalBalance, YrsofMembership);         END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `insertmemberElementary` (IN `MemberAccountID` INT(11), IN `ElementaryDate` DATE, IN `CollegeAddressElementary` VARCHAR(250), IN `ElementaryRemarks` VARCHAR(250))  BEGIN
+	INSERT INTO member_elementary VALUES(NULL, MemberAccountID, ElementaryDate, CollegeAddressElementary, ElementaryRemarks);
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `insertmemberHighschool` (IN `MemberAccountID` INT(11), IN `HighschoolDate` DATE, IN `HighschoolAddress` VARCHAR(250), IN `HighschoolRemarks` VARCHAR(250))  BEGIN
+	INSERT INTO member_highschool VALUES(NULL, MemberAccountID, HighschoolDate, HighschoolAddress, HighschoolRemarks);
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `insertmemberPostgrad` (IN `MemberAccountID` INT(11), IN `PostGradDate` DATE, IN `PostGradAddress` VARCHAR(250), IN `PostGradRemarks` VARCHAR(250))  BEGIN
+	INSERT INTO member_postgrad VALUES(NULL, MemberAccountID, PostGradDate, PostGradAddress, PostGradRemarks);
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `insertstaffProfile` (IN `UserAccountID` INT(11), IN `FirstName` VARCHAR(250), IN `MiddleName` VARCHAR(250), IN `LastName` VARCHAR(250), IN `TelNo` VARCHAR(20), IN `PlaceofBirth` VARCHAR(250), IN `DOB` DATE, IN `Nationality` VARCHAR(50), IN `Sex` ENUM('Male','Female'), IN `CivilStatus` VARCHAR(50), IN `BloodType` VARCHAR(50), IN `Address` VARCHAR(250))  BEGIN
+	INSERT INTO staff_profile VALUES(NULL, UserAccountID, FirstName, MiddleName, LastName, TelNo, PlaceofBirth, DOB, Nationality, Sex, CivilStatus, BloodType, Address);
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `insertuserEmployment` (IN `MemberAccountID` INT(11), IN `NameofFirm` VARCHAR(250), IN `Address` VARCHAR(250), IN `DateofEmploymentStarted` DATE, IN `GrossIncome` INT(100), IN `Position` VARCHAR(100), IN `TelNo` INT(100), IN `NetTakeHomePay` INT(100))  BEGIN
+	INSERT INTO user_employment VALUES(NULL, MemberAccountID, NameofFirm, Address, DateofEmploymentStarted, GrossIncome, Position, TelNo, NetTakeHomePay);
+END$$
+
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -136,7 +166,7 @@ CREATE TABLE `member_business` (
   `Ownership` varchar(250) NOT NULL,
   `Capital` int(100) NOT NULL,
   `TradeName` varchar(100) NOT NULL,
-  `TelNo.` int(100) NOT NULL,
+  `TelNo` int(100) NOT NULL,
   `YearStarted` int(50) NOT NULL,
   `GrossIncome` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -307,6 +337,13 @@ CREATE TABLE `staff_profile` (
   `Address` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `staff_profile`
+--
+
+INSERT INTO `staff_profile` (`StaffProfileID`, `UserAccountID`, `FirstName`, `MiddleName`, `LastName`, `TelNo`, `PlaceofBirth`, `DOB`, `Nationality`, `Sex`, `CivilStatus`, `BloodType`, `Address`) VALUES
+(1, 13, 'Janrey', 'Saltiga', 'Dumaog', '098243334', 'Puerto Cdo', '1999-01-22', 'Filipino', 'Male', 'Single', 'O', 'Cdo');
+
 -- --------------------------------------------------------
 
 --
@@ -322,19 +359,12 @@ CREATE TABLE `user_employment` (
   `GrossIncome` int(100) NOT NULL,
   `Position` varchar(100) NOT NULL,
   `TelNo` int(100) NOT NULL,
-  `NetTake-HomePay` int(100) NOT NULL
+  `NetTakeHomePay` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `children`
---
-ALTER TABLE `children`
-  ADD PRIMARY KEY (`ChildrenID`),
-  ADD UNIQUE KEY `Family_InfoID` (`Family_InfoID`);
 
 --
 -- Indexes for table `family_info`
@@ -461,22 +491,16 @@ ALTER TABLE `user_employment`
 --
 
 --
--- AUTO_INCREMENT for table `children`
---
-ALTER TABLE `children`
-  MODIFY `ChildrenID` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `family_info`
 --
 ALTER TABLE `family_info`
-  MODIFY `Family_InfoID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Family_InfoID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `loan`
 --
 ALTER TABLE `loan`
-  MODIFY `LoanID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `LoanID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `loanlogs`
@@ -494,7 +518,7 @@ ALTER TABLE `member_account`
 -- AUTO_INCREMENT for table `member_business`
 --
 ALTER TABLE `member_business`
-  MODIFY `MemberBusinessID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `MemberBusinessID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `member_college`
@@ -506,7 +530,7 @@ ALTER TABLE `member_college`
 -- AUTO_INCREMENT for table `member_contribution`
 --
 ALTER TABLE `member_contribution`
-  MODIFY `MemberContributionID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `MemberContributionID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `member_depositlogs`
@@ -518,19 +542,19 @@ ALTER TABLE `member_depositlogs`
 -- AUTO_INCREMENT for table `member_elementary`
 --
 ALTER TABLE `member_elementary`
-  MODIFY `UserElementaryID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `UserElementaryID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `member_highschool`
 --
 ALTER TABLE `member_highschool`
-  MODIFY `UserHighschoolID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `UserHighschoolID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `member_postgrad`
 --
 ALTER TABLE `member_postgrad`
-  MODIFY `UserPostGradID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `UserPostGradID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `member_sharelogs`
@@ -560,13 +584,13 @@ ALTER TABLE `staff_acount`
 -- AUTO_INCREMENT for table `staff_profile`
 --
 ALTER TABLE `staff_profile`
-  MODIFY `StaffProfileID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `StaffProfileID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `user_employment`
 --
 ALTER TABLE `user_employment`
-  MODIFY `MemberEmploymentID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `MemberEmploymentID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

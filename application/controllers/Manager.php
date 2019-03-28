@@ -17,8 +17,11 @@ class Manager extends CI_Controller {
 
 
     private function main_contents(){
-        $data['location'] = 'public/contents-css/user.css';
-        $this->load->view('srtdash/index2');
+        $this->load->model('Mem_model','manager');
+        $res = $this->manager->getManager();
+        $data = array('title' => "Manager",'contents' => "pages/m-table",'page' => "Members","links" => "main","res" => $res  );
+        $this->load->view('templates/dashboard-header',$data);
+        $this->load->view('pages/manager-main',$data);
     }
 
     private function check_logged(){
@@ -28,7 +31,7 @@ class Manager extends CI_Controller {
             $userType = $this->session->userdata('user_type');
             if('cashier'==$userType){
                 redirect('cashier');
-            }else if ('loan_clerk'==$userType){
+            }else if ('loanclerk'==$userType){
                 redirect('clerk');
             }else if ('manager'==$userType){
                 redirect('manager');

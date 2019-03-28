@@ -19,7 +19,7 @@
                             
                           
                             <li><a href="<?=base_url()?>"><i class="ti-map-alt"></i> <span>Home</span></a></li>
-                            <li><a href="<?= base_url('cashier/register') ?>"><i class="ti-map-alt"></i> <span>Create Account</span></a></li>
+                            <!-- <li><a href="<?= base_url('cashier/register') ?>"><i class="ti-map-alt"></i> <span>Create Account</span></a></li> -->
                         </ul>
                     </nav>
                 </div>
@@ -84,7 +84,7 @@
                     <div class="col-sm-6 clearfix">
                         <div class="user-profile pull-right">
                             <img class="avatar user-thumb" src="<?=base_url('public/contents-css/logo/admin.png')?>" alt="avatar">
-                            <h4 class="user-name dropdown-toggle" data-toggle="dropdown"> Patrick <i class="fa fa-angle-down"></i></h4>
+                            <h4 class="user-name dropdown-toggle" data-toggle="dropdown"> Manager <i class="fa fa-angle-down"></i></h4>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="<?= base_url(); ?> ">Profile</a>
                                 <a class="dropdown-item" href="<?= base_url('admin/logout'); ?> ">Log Out</a>
