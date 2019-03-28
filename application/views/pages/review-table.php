@@ -31,8 +31,7 @@
                         
                     ?>
                     <td>
-                        <a href="<?=base_url('loanclerk/edit');?>" style="width: 30%" class="btn btn-warning">Edit</a>
-                        <a href="javascript:confirmDelete('<?=base_url("cashier/delete/".$row->MemberAccountID); ?>')" style="width: 30%" class="btn btn-danger">Delete</a>
+                        <a href="<?=base_url('loanclerk/edit');?>" style="width: 70%" class="btn btn-warning">Edit</a>
                     </td>
                     <?php } ?>
                     <?php }else{
