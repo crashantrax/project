@@ -69,7 +69,6 @@
                     <th>Amount</th>
                 </tr>
                 <?php 
-                var_dump($res);exit;
                     $count=1;
                     $counter=1;
                     foreach ($res->result() as $row){
