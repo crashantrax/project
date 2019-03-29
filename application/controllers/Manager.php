@@ -13,6 +13,14 @@ class Manager extends CI_Controller {
     	redirect();
     }
 
+    public function profile(){
+        $this->load->model('Mem_model','manager');
+        $res = $this->manager->getManager();
+        $data = array('title' => "Manager",'contents' => "pages/profile-table",'page' => "Members","links" => "main","res" => $res  );
+        $this->load->view('templates/dashboard-header',$data);
+        $this->load->view('pages/manager-profile',$data);
+    }
+
      public function register(){
         $this->check_logged();
         $data = array('title' => "Manage Employee",'contents' => "pages/m-addEmployee",'page' => "Registration","links" => "register" );

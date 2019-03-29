@@ -17,6 +17,14 @@ class Loanclerk extends CI_Controller {
         $this->load->view('templates/error');
     }
 
+    public function profile(){
+        $this->check_logged();
+        $this->load->model('Mem_model','loanclerk');
+        $res = $this->loanclerk->getManager();
+        $data = array('title' => "LoanClerk",'contents' => "pages/profile-table",'page' => "Members","links" => "main","res" => $res  );
+        $this->load->view('templates/dashboard-header',$data);
+        $this->load->view('pages/loan-main',$data);
+    }
 
     private function main_contents(){
         $this->load->model('Mem_model','members');
