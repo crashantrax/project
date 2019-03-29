@@ -135,6 +135,30 @@ class Register extends CI_Model {
     	public function viewMemCon($id){
     		return $this->db->query("CALL viewMemContrib("."'".$id."'".")");
     	}
+
+        public function insertDeposit($acc,$amt_shared,$amt_dep){
+            $id = $this->db->query("SELECT * FROM member_account WHERE MemberAccountID = ".$acc)->row('MemberAccountID');
+            $count =  $this->db->query("SELECT * FROM member_contribution WHERE MemberAccountID = $id ");
+            $res = $count->num_rows();
+            if($res==0){
+                $data = array(
+                'MemberTotalSharesCapital' => $amt_shared,
+                'MemTotalBalance' => $amt_dep,
+                'YrsofMembership' => 1,
+                'MemberAccountID'=>$id
+                );
+                $this->db->insert('member_contribution', $data);
+            }else{
+                $data = array(
+                'MemberDepositAmount' => $amt_dep,
+                'PaymentDate' => date('Y-m-d'),
+                'MemberAccountID' => $id
+                );
+                $this->db->insert('member_depositlogs', $data);
+            
+            }
+            redirect('cashier');
+        }
 }
 
 

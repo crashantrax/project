@@ -6,10 +6,18 @@
 							<table align="center" border="0" class="table">
 		                        <tr>
 		                            <tr>
-		                                <th colspan="3"><div align="center">2019102480 - Orioste, Christian Clapton G.</div></th>
+		                                <th colspan="3"><div align="center"><?=$res->row('account_number')."-".ucfirst($res->row('LastName').", ".ucfirst($res->row('FirstName'))." ".ucfirst($res->row('MiddleName')))?></div></th>
 		                            </tr>
 		                            <tr>
-		                                <th colspan="3"><div align="center">Balance - PHP1000.0</div></th>
+		                                <th colspan="3"><div align="center">Account Balance:<?php
+		                                if($res->row('MemTotalBalance')==""){
+		                                	echo "<b style='color: red;
+}'> Insuficient Fund!</b>";
+		                                }else{
+		                                	echo " P".$res->row('MemTotalBalance');
+		                                }
+
+		                                 ?></div></th>
 		                            </tr>
 		                            <tr>
 		                                <td>

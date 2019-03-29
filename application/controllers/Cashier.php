@@ -34,6 +34,7 @@ class Cashier extends CI_Controller {
        
 
         $res = $this->reg->viewMemCon($this->input->get_post('id'));
+
         $data = array('title' => "View",'contents' => "pages/member-savings",'page' => "View Member","links" => "members","res" => $res );
         $this->load->view('templates/dashboard-header',$data);
         $this->load->view('pages/cashier-main',$data);
@@ -42,14 +43,18 @@ class Cashier extends CI_Controller {
 
     public function deposit(){
         $this->check_logged();
-        $data = array('title' => "Deposit",'contents' => "pages/deposit-form",'page' => "Deposits","links" => "deposit" );
+        $this->load->model('Register','reg');
+        $res = $this->reg->viewMemCon($this->input->get_post('id'));
+        $data = array('title' => "Deposit",'contents' => "pages/deposit-form",'page' => "Deposits","links" => "deposit","res"=>$res );
         $this->load->view('templates/dashboard-header',$data);
         $this->load->view('pages/cashier-main',$data);
     }
 
     public function withdraw(){
         $this->check_logged();
-        $data = array('title' => "Withdraw",'contents' => "pages/withdraw-form",'page' => "Withdraw","links" => "withdraw" );
+        $this->load->model('Register','reg');
+        $res = $this->reg->viewMemCon($this->input->get_post('id'));
+        $data = array('title' => "Withdraw",'contents' => "pages/withdraw-form",'page' => "Withdraw","links" => "withdraw","res"=>$res );
         $this->load->view('templates/dashboard-header',$data);
         $this->load->view('pages/cashier-main',$data);
     }
@@ -176,6 +181,10 @@ class Cashier extends CI_Controller {
         if($b_trade!="" && $b_type!="" && $b_address!="" && $b_grossIn!="" && $b_own!="" && $b_phone!="" && $b_cap!=""){
             $this->register->insertBusi($account_number,$b_type,$b_address,$b_dob,$b_grossIn,$b_own,$b_phone,$b_cap,$b_trade);
         }
+
+        
+
+        
         
         redirect('cashier');
 
@@ -183,6 +192,16 @@ class Cashier extends CI_Controller {
 
 
 
+    }
+    public function inserDeposit(){
+        $this->check_logged();
+        $this->load->model('Register','register');
+        $amt_shared = $this->input->post('amt_shared');
+        $amt_dep = $this->input->post('amt_dep');
+        $idn = $this->input->get_post('id');
+        if($amt_shared!="" && $amt_dep!=""){
+            $this->register->insertDeposit($idn,$amt_shared,$amt_dep);
+        }
     }
 
     private function main_contents(){

@@ -1,12 +1,14 @@
 		
 			<div class="container1">
 				<div class="col-md-12">
-					<form  method="POST" action="">
+					<?php $idn=$this->input->get_post('id');?>
+					<form  method="POST" action="<?=base_url("cashier/inserDeposit/?id="."$idn")?>">
 						<div class="panel-primary">
+
 							<table align="center" border="0" class="table">
 		                        <tr>
 		                            <tr>
-		                                <th colspan="3"><div align="center">2019102480 - Orioste, Christian Clapton G.</div></th>
+		                                <th colspan="3"><div align="center"><?=$res->row('account_number')."-".ucfirst($res->row('LastName').", ".ucfirst($res->row('FirstName'))." ".ucfirst($res->row('MiddleName')))?></div></th>
 		                            </tr>
 		                            <tr>
 		                                <td>
