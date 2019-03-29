@@ -3,7 +3,7 @@
             <div class="container1" style="height: 180px;">
                 <div class="col-md-12">
                         <div class="panel-primary">
-                            <table align="center" border="0" class="table">
+                            <table align="center" border="0" class="table table-bordered">
                                 <tr>
                                     <tr>
                                         <th><div align="center"><?=$res->row('account_number')."-".ucfirst($res->row('LastName').", ".ucfirst($res->row('FirstName'))." ".ucfirst($res->row('MiddleName')))?></div></th>
@@ -26,7 +26,7 @@
 
         
 
-<table class="table table-bordered" style="margin-top: 30px;background: #ececec;">
+<table class="table table-bordered" style="margin-top: 30px;background: #fff;">
                 <tr>
                     <th colspan="3">Withdrawal Logs</th>
                 </tr>
@@ -59,7 +59,7 @@
 
 
 
-<table class="table table-bordered" style="margin-top: 30px;background: #ececec;">
+<table class="table table-bordered" style="margin-top: 30px;background: #fff;">
                 <tr>
                     <th colspan="3">Deposit Logs</th>
                 </tr>
