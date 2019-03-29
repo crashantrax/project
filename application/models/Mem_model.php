@@ -18,6 +18,10 @@ class Mem_model extends CI_Model {
                 return $query;
         }
 
+        public function getBiz(){
+                $query = $this->db->get('member_business');
+        }
+
 	public function getEduc($profileID) {
         	$this->db->where('user_account_id',$profileID);
         	$query = $this->db->get('tbluser_education');
