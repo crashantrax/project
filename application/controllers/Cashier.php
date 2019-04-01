@@ -36,9 +36,15 @@ class Cashier extends CI_Controller {
 
         $res = $this->reg->viewMemCon($this->input->get_post('id'));
 
-        $data = array('title' => "View",'contents' => "pages/member-savings",'page' => "View Member","links" => "members","res" => $res );
-        $this->load->view('templates/dashboard-header',$data);
-        $this->load->view('pages/cashier-main',$data);
+        if($res->num_rows()==0){
+            echo "Sorry, borrower doesn't exist.";
+        }else{
+            $data = array('title' => "View",'contents' => "pages/member-savings",'page' => "View Member","links" => "members","res" => $res );
+            $this->load->view('templates/dashboard-header',$data);
+            $this->load->view('pages/cashier-main',$data);
+        }
+
+        
     }
 
     public function deposit(){
