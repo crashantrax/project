@@ -2,7 +2,7 @@
     <form id="regForm" method="POST" action="<?php echo base_url('cashier/register_members'); ?>">
   <!-- One "tab" for each step in the form: -->
   <div class="tab">
-            <table align="center" border="0" class="table">
+            <table align="center" border="0" class="table" style="background-color: #88CC88">
                         <tr>
                             <tr>
                                 <th colspan="3"><div align="center">Personal Information</div></th>
@@ -146,7 +146,7 @@
   </div>
 
   <div class="tab">
-     <table align="center" border="0" class="table">
+     <table align="center" border="0" class="table" style="background-color: #88CC88">
                         <tr>
                             <tr>
                                 <th colspan="3"><div align="center">Educational Information</div></th>
@@ -221,7 +221,7 @@
         </table>
   </div>
   <div class="tab">
-    <table align="center" border="0" class="table">
+    <table align="center" border="0" class="table" style="background-color: #88CC88">
                         <tr>
                             <tr>
                                 <th colspan="3"><div align="center">Family Background</div></th>
@@ -316,7 +316,7 @@
 
 
   <div class="tab">
-     <table align="center" border="0" class="table">
+     <table align="center" border="0" class="table" style="background-color: #88CC88">
                         <tr>
                             <tr>
                                 <th colspan="3"><div align="center">Employment Information</div></th>
@@ -404,7 +404,7 @@
 
 
   <div class="tab">
-     <table align="center" border="0" class="table">
+     <table align="center" border="0" class="table" style="background-color: #88CC88">
                         <tr>
                             <tr>
                                 <th colspan="3"><div align="center">Business Information (Optional)</div></th>
