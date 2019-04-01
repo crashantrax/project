@@ -30,6 +30,7 @@ class Cashier extends CI_Controller {
 
     public function profile(){
         $this->check_logged();
+        
 
         $this->load->model('Register','reg');
        
@@ -37,7 +38,7 @@ class Cashier extends CI_Controller {
         $res = $this->reg->viewMemCon($this->input->get_post('id'));
 
         if($res->num_rows()==0){
-            echo "Sorry, borrower doesn't exist.";
+            $this->load->view('pages/sorry');
         }else{
             $data = array('title' => "View",'contents' => "pages/member-savings",'page' => "View Member","links" => "members","res" => $res );
             $this->load->view('templates/dashboard-header',$data);
