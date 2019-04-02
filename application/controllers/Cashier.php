@@ -62,13 +62,10 @@ class Cashier extends CI_Controller {
 
 
 
-<<<<<<< HEAD
         if($profile->num_rows()==0){
             echo "Sorry, borrower doesn't exist. ";
-=======
         if($res->num_rows()==0){
             $this->load->view('pages/sorry');
->>>>>>> 8610e5eb06038423accb6fda463baba87fe8e92c
         }else{
             $data = array('title' => "View",'contents' => "pages/member-savings",'page' => "View Member","links" => "members","profi" => $profile,"with" => $withdraw,"depo" => $deposits,"contri" => $contribution,"shares" => $shares );
             $this->load->view('templates/dashboard-header',$data);
@@ -222,7 +219,6 @@ class Cashier extends CI_Controller {
         }
         redirect('cashier');
     }
-<<<<<<< HEAD
     public function inserWithdraw(){
         $this->check_logged();
         $this->load->model('Register','register');
@@ -234,9 +230,6 @@ class Cashier extends CI_Controller {
         }
         redirect('cashier');
     }
-=======
-    
->>>>>>> 8610e5eb06038423accb6fda463baba87fe8e92c
     public function inserDeposit(){
         $this->check_logged();
         $this->load->model('Register','register');
@@ -267,20 +260,6 @@ class Cashier extends CI_Controller {
             echo 'alert("Access Forbidden!");'; 
             echo 'window.location.href = "Error404";';
             echo '</script>';
-            // $userType = $this->session->userdata('user_type');
-            // if('admin'==$userType){
-            //     redirect('admin');
-            // }else if ('loan_clerk'==$userType){
-            //     redirect('loanclerk');
-            // }else if ('manager'==$userType){
-            //     redirect('manager');
-            // }else{
-            //     echo '<script type="text/javascript">'; 
-            //     echo 'alert("Access Forbidden!");'; 
-            //     echo 'window.location.href = "Error404";';
-            //     echo '</script>';
-            //     exit;
-            // }
         }
         else{
             return true;
