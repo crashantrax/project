@@ -19,7 +19,9 @@ class Loanclerk extends CI_Controller {
 
     public function profile(){
         $this->check_logged();
+
         $this->load->model('Mem_model','loanclerk');
+        
         $res = $this->loanclerk->getManager();
         $data = array('title' => "LoanClerk",'contents' => "pages/profile-table",'page' => "Members","links" => "main","res" => $res  );
         $this->load->view('templates/dashboard-header',$data);
@@ -36,9 +38,11 @@ class Loanclerk extends CI_Controller {
 
     public function cstatus(){
         $this->check_logged();
+
         $this->load->model('Mem_model','loanclerk');
-        $res = $this->loanclerk->getBiz();
-        $data = array('title' => "Member Status",'contents' => "pages/status-table",'page' => "Members","links" => "main","res" => $res  );
+
+        $res = $this->loanclerk->getBiz($this->input->get_post('id'));
+        $data = array('title' => "Members",'contents' => "pages/status-table",'page' => "Members","links" => "main","res" => $res  );
         $this->load->view('templates/dashboard-header',$data);
         $this->load->view('pages/loan-main',$data);
     }
