@@ -13,6 +13,8 @@ class Loanclerk extends CI_Controller {
     	redirect();
     }
 
+   
+
     public function error404(){
         $this->load->view('templates/error');
     }

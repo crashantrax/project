@@ -12,14 +12,7 @@ class Manager extends CI_Controller {
     	session_destroy();
     	redirect();
     }
-
-    public function profile(){
-        $this->load->model('Mem_model','manager');
-        $res = $this->manager->getManager();
-        $data = array('title' => "Manager",'contents' => "pages/profile-table",'page' => "Members","links" => "main","res" => $res  );
-        $this->load->view('templates/dashboard-header',$data);
-        $this->load->view('pages/manager-profile',$data);
-    }
+    
 
      public function register(){
         $this->check_logged();
@@ -66,11 +59,20 @@ class Manager extends CI_Controller {
         $this->load->view('templates/error');
     }
 
+    public function profile(){
+        $this->check_logged();
+        $this->load->model('Mem_model','cashier');
+        $res = $this->cashier->getManager();
+        $data = array('title' => "Manager",'contents' => "pages/s-table",'page' => "Member's Profile","links" => "main","res" => $res  );
+        $this->load->view('templates/dashboard-header',$data);
+        $this->load->view('pages/manager-main',$data);
+    }
+
 
     private function main_contents(){
-        $this->load->model('Mem_model','manager');
-        $res = $this->manager->getManager();
-        $data = array('title' => "Manager",'contents' => "pages/m-table",'page' => "Members","links" => "main","res" => $res  );
+        $this->load->model('Mem_model','members');
+        $res = $this->members->getMembers();
+        $data = array('title' => "Manager",'contents' => "pages/m-table",'page' => "Manager","links" => "main","res" => $res);
         $this->load->view('templates/dashboard-header',$data);
         $this->load->view('pages/manager-main',$data);
     }
