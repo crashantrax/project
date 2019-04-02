@@ -8,6 +8,12 @@ class Mem_model extends CI_Model {
         	return $query;
 	}
 
+        public function getMembersJoin() {
+                $query = $this->db->get('viewmemberjoin');
+                return $query;
+        }
+
+
         public function getManager() {
                 $query = $this->db->get('staff_profile');
                 return $query;
@@ -18,8 +24,10 @@ class Mem_model extends CI_Model {
                 return $query;
         }
 
-        public function getBiz(){
+        public function getBiz($status){
+                $this->db->where('MemberAccountID',$status);
                 $query = $this->db->get('member_business');
+                return $query;
         }
 
 	public function getEduc($profileID) {

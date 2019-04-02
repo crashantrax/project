@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 29, 2019 at 04:18 AM
+-- Generation Time: Apr 02, 2019 at 09:54 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -36,19 +36,50 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `depositlogsUpdate` ()  BEGIN
 END IF;
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `viewMemContrib` (IN `id` INT(255))  BEGIN
-   
-    SELECT account_number,member_account.MemberAccountID,member_withdrawallogs.WithdrawalAmount,member_withdrawallogs.Date,FirstName,MiddleName,LastName,MemberTotalSharesCapital,MemTotalBalance,YrsofMembership
-	FROM member_account
-	LEFT JOIN member_contribution ON member_contribution.MemberAccountID = member_account.MemberAccountID
-LEFT JOIN member_withdrawallogs ON member_withdrawallogs.MemberAccountID = member_contribution.MemberAccountID WHERE member_account.MemberAccountID = id  ;
-   END$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `depositlogsUpdate1` ()  BEGIN
+    
+    IF (SELECT COUNT(MemberAccountID) FROM member_depositlogs WHERE MemberAccountID = NEW.MemberAccountID) = 0 THEN
+        INSERT INTO member_depositlogs(MemberDepositAmount, PaymentDate, MemberAccountID)
+        VALUES(NEW.MemberDepositAmount, CURRENT_DATE(), NEW.MemberAccountID);
+    ELSE
+    	UPDATE member_depositlogs
+       	SET MemberDepositAmount = NEW.MemberDepositAmount
+        WHERE MemberAccountID = NEW.MemberAccountID;
+END IF;
+END$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `wLogs` (IN `id` INT(255))  BEGIN
    SELECT *  FROM member_withdrawallogs WHERE MemberAccountID = id ;
    END$$
 
 DELIMITER ;
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `contribution`
+-- (See below for the actual view)
+--
+CREATE TABLE `contribution` (
+`MemberContributionID` int(11)
+,`MemberTotalSharesCapital` int(250)
+,`MemTotalBalance` int(250)
+,`YrsofMembership` int(100)
+,`MemberAccountID` int(11)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `deposits`
+-- (See below for the actual view)
+--
+CREATE TABLE `deposits` (
+`MemberDepositLogsID` int(11)
+,`MemberDepositAmount` int(250)
+,`PaymentDate` date
+,`MemberAccountID` int(11)
+);
 
 -- --------------------------------------------------------
 
@@ -236,8 +267,9 @@ CREATE TABLE `member_contribution` (
 
 INSERT INTO `member_contribution` (`MemberContributionID`, `MemberTotalSharesCapital`, `MemTotalBalance`, `YrsofMembership`, `MemberAccountID`) VALUES
 (1, 2000, 251432, 2, 74),
-(2, 2000, 2212, 3, 12),
-(3, 250000, 250123, 1, 76);
+(2, 2000, 32136548, 3, 12),
+(3, 250000, 250123, 1, 76),
+(4, 33, 33, 0, 12);
 
 -- --------------------------------------------------------
 
@@ -264,20 +296,25 @@ INSERT INTO `member_depositlogs` (`MemberDepositLogsID`, `MemberDepositAmount`, 
 (5, 1000, '2019-03-28', 74),
 (6, 1000, '2019-03-28', 2003),
 (7, 250000, '2019-03-28', 74),
-(8, 123, '2019-03-28', 76);
+(8, 123, '2019-03-28', 76),
+(9, 3213, '2019-04-02', 12),
+(10, 32131123, '2019-04-02', 12),
+(11, 33, '2019-04-02', 12);
 
 --
 -- Triggers `member_depositlogs`
 --
 DELIMITER $$
-CREATE TRIGGER `depositlogsUpdate` AFTER INSERT ON `member_depositlogs` FOR EACH ROW BEGIN
-	DECLARE deposit int(250);
-	
-    SELECT MemberDepositAmount INTO deposit FROM member_depositlogs WHERE MemberDepositLogsID = NEW.MemberDepositLogsID  ;
+CREATE TRIGGER `depositlogsUpdatev2` AFTER INSERT ON `member_depositlogs` FOR EACH ROW BEGIN
     
-	UPDATE member_contribution
-    SET MemTotalBalance = MemTotalBalance + deposit
-    WHERE MemberAccountID = NEW.MemberAccountID;
+    IF (SELECT COUNT(MemberAccountID) FROM member_depositlogs WHERE MemberAccountID = NEW.MemberAccountID) = 0 THEN
+        INSERT INTO member_depositlogs(MemberDepositAmount, PaymentDate, MemberAccountID)
+        VALUES(NEW.MemberDepositAmount, CURRENT_DATE(), NEW.MemberAccountID);
+    ELSE
+    	INSERT INTO member_contribution(MemberTotalSharesCapital, MemTotalBalance, YrsofMembership, MemberAccountID)
+       	VALUES(NEW.MemberDepositAmount, NEW.MemberDepositAmount,'0',NEW.MemberAccountID);
+        
+END IF;
 END
 $$
 DELIMITER ;
@@ -562,6 +599,37 @@ CREATE TABLE `viewmemberjoin` (
 -- --------------------------------------------------------
 
 --
+-- Stand-in structure for view `withdraw`
+-- (See below for the actual view)
+--
+CREATE TABLE `withdraw` (
+`WithdrawalProfileID` int(11)
+,`WithdrawalAmount` int(250)
+,`Date` date
+,`MemberAccountID` int(11)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `contribution`
+--
+DROP TABLE IF EXISTS `contribution`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `contribution`  AS  select `member_contribution`.`MemberContributionID` AS `MemberContributionID`,`member_contribution`.`MemberTotalSharesCapital` AS `MemberTotalSharesCapital`,`member_contribution`.`MemTotalBalance` AS `MemTotalBalance`,`member_contribution`.`YrsofMembership` AS `YrsofMembership`,`member_contribution`.`MemberAccountID` AS `MemberAccountID` from `member_contribution` ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `deposits`
+--
+DROP TABLE IF EXISTS `deposits`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `deposits`  AS  select `member_depositlogs`.`MemberDepositLogsID` AS `MemberDepositLogsID`,`member_depositlogs`.`MemberDepositAmount` AS `MemberDepositAmount`,`member_depositlogs`.`PaymentDate` AS `PaymentDate`,`member_depositlogs`.`MemberAccountID` AS `MemberAccountID` from `member_depositlogs` ;
+
+-- --------------------------------------------------------
+
+--
 -- Structure for view `members`
 --
 DROP TABLE IF EXISTS `members`;
@@ -576,6 +644,15 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 DROP TABLE IF EXISTS `viewmemberjoin`;
 
 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `viewmemberjoin`  AS  select `member_account`.`account_number` AS `account_number`,`member_account`.`MemberAccountID` AS `MemberAccountID`,`member_account`.`FirstName` AS `FirstName`,`member_account`.`MiddleName` AS `MiddleName`,`member_account`.`LastName` AS `LastName`,`member_account`.`TelNo` AS `TelNo`,`member_account`.`PlaceofBirth` AS `PlaceofBirth`,`member_account`.`DOB` AS `DOB`,`member_account`.`Nationality` AS `Nationality`,`member_account`.`Sex` AS `Sex`,`member_account`.`CivilStatus` AS `CivilStatus`,`member_account`.`BloodType` AS `BloodType`,`member_account`.`Address` AS `Address`,`member_account`.`Status` AS `Status`,`member_account`.`date_created` AS `date_created`,`member_account`.`email` AS `email`,`family_info`.`spouse_fn` AS `spouse_fn`,`family_info`.`spouse_mn` AS `spouse_mn`,`family_info`.`spouse_ln` AS `spouse_ln`,`family_info`.`Occupation` AS `Occupation`,`family_info`.`CapitalGrossIncome` AS `CapitalGrossIncome`,`family_info`.`DateofBirth` AS `DateofBirth`,`family_info`.`Position` AS `Position`,`family_info`.`NoofChildren` AS `NoofChildren`,`member_elementary`.`CollegeAddressElementary` AS `CollegeAddressElementary`,`member_elementary`.`ElementaryRemarks` AS `ElementaryRemarks`,`member_elementary`.`ElementaryDate` AS `ElementaryDate`,`member_highschool`.`HighschoolAddress` AS `HighschoolAddress`,`member_highschool`.`HighschoolRemarks` AS `HighschoolRemarks`,`member_highschool`.`HighschoolDate` AS `HighschoolDate`,`member_college`.`CollegeAddress` AS `CollegeAddress`,`member_college`.`CollegeRemarks` AS `CollegeRemarks`,`member_college`.`CollegeDate` AS `CollegeDate`,`member_postgrad`.`PostGradAddress` AS `PostGradAddress`,`member_postgrad`.`PostGradRemarks` AS `PostGradRemarks`,`member_postgrad`.`PostGradDate` AS `PostGradDate`,`user_employment`.`NameofFirm` AS `NameofFirm`,`user_employment`.`DateofEmploymentStarted` AS `DateofEmploymentStarted`,`user_employment`.`GrossIncome` AS `GrossIncome`,`user_employment`.`NetTakeHomePay` AS `NetTakeHomePay`,`member_business`.`TypeOfBusiness` AS `TypeOfBusiness`,`member_business`.`Ownership` AS `Ownership`,`member_business`.`Capital` AS `Capital`,`member_business`.`TradeName` AS `TradeName`,`member_business`.`YearStarted` AS `YearStarted` from (((((((`member_account` join `family_info` on((`family_info`.`MemberAccountID` = `member_account`.`MemberAccountID`))) join `member_elementary` on((`member_elementary`.`MemberAccountID` = `member_account`.`MemberAccountID`))) join `member_highschool` on((`member_highschool`.`MemberAccountID` = `member_account`.`MemberAccountID`))) join `member_college` on((`member_college`.`MemberAccountID` = `member_account`.`MemberAccountID`))) join `member_postgrad` on((`member_postgrad`.`MemberAccountID` = `member_account`.`MemberAccountID`))) join `user_employment` on((`user_employment`.`MemberAccountID` = `member_account`.`MemberAccountID`))) join `member_business` on((`member_business`.`MemberAccountID` = `member_account`.`MemberAccountID`))) ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `withdraw`
+--
+DROP TABLE IF EXISTS `withdraw`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `withdraw`  AS  select `member_withdrawallogs`.`WithdrawalProfileID` AS `WithdrawalProfileID`,`member_withdrawallogs`.`WithdrawalAmount` AS `WithdrawalAmount`,`member_withdrawallogs`.`Date` AS `Date`,`member_withdrawallogs`.`MemberAccountID` AS `MemberAccountID` from `member_withdrawallogs` ;
 
 --
 -- Indexes for dumped tables
@@ -731,12 +808,12 @@ ALTER TABLE `member_college`
 -- AUTO_INCREMENT for table `member_contribution`
 --
 ALTER TABLE `member_contribution`
-  MODIFY `MemberContributionID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `MemberContributionID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `member_depositlogs`
 --
 ALTER TABLE `member_depositlogs`
-  MODIFY `MemberDepositLogsID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `MemberDepositLogsID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `member_elementary`
 --
