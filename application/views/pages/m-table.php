@@ -7,6 +7,7 @@
                         <th>Name</th>
                         <th>Date</th>
                         <th>Status</th>
+                        <th>Action</th>
                     </tr>
 
 
@@ -31,7 +32,10 @@
                         $count++;
                         
                     ?>
-
+                    <td>
+                        <a href="<?=base_url("manager/view/?id=$row->MemberAccountID");?>" style="width: 50%" class="btn btn-primary">View</a>
+                        
+                    </td>
                     <?php } ?>
                     <?php }else{
                         echo "<tr><td>0 Results<td>";

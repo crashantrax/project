@@ -37,30 +37,6 @@
                         <th>Year Started <br>
                             <p><?=$res->row('YearStarted')?></p>
                         </th>
-                        <!-- <th width="" style="padding-top: 3%;">Member Account ID <br>
-                            <p><?=$res->row('MemberAccountID')?></p>
-                            <hr>
-                        </th>
-                        <th width="" style="padding-top: 3%;">Type Of Business<br>
-                            <p><?=$res->row('TypeOfBusiness')?></p>
-                            <hr>
-                        </th>
-                        <th width="" style="padding-top: 3%;">Address<br>
-                            <?=$res->row('Address')?>
-                            <hr>
-                        </th>
-                        <th width="" style="padding-top: 3%;">Ownership<br>
-                            <?=$res->row('Ownership')?>
-                            <hr>
-                        </th>
-                        <th width="" style="padding-top: 3%;">Capital<br>
-                            <?=$res->row('Capital')?>
-                            <hr>
-                        </th>
-                        <th width="" style="padding-top: 3%;">Trade Name<br>
-                            <?=$res->row('TradeName')?>
-                            <hr>
-                        </th> -->
                     </tr>
                     <tr>
                         
