@@ -173,6 +173,15 @@ class Register extends CI_Model {
             redirect('cashier');
         }
 
+        public function insertWithdraw($amnt,$acc){
+            $id = $this->db->query("SELECT * FROM member_account WHERE MemberAccountID = ".$acc)->row('MemberAccountID');
+            $data = array(
+                'WithdrawalAmount' => $amnt,
+                'Date' => date('Y-m-d'),
+                'MemberAccountID' => $id
+                );
+               $this->db->insert('member_withdrawallogs', $data);
+           }
         public function insertLoan($acc,$acc_num,$loan,$type){
             $id = $this->db->query("SELECT * FROM member_account WHERE MemberAccountID = ".$acc)->row('MemberAccountID');
             $count =  $this->db->query("SELECT * FROM loanapply WHERE MemberAccountID = $id ");
