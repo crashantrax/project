@@ -17,7 +17,6 @@
                     <nav>
                         <ul class="metismenu" id="menu">
                             <li class="active"><a href="<?=base_url()?>"><i class="ti-home"></i> <span>Home</span></a></li>
-                            <li ><a href="<?= base_url('applicationform');?>"><i class="ti-write"></i><span>Review Loan Application</span></a></li>
                         </ul>
                     </nav>
                 </div>
@@ -72,6 +71,9 @@
                                  }
                                  else if($links == "register"){
                                      echo "<li><span>Register</span></li>";
+                                 }
+                                 else if($links == "apply"){
+                                     echo "<li><span>Apply</span></li>";
                                  }
                                 ?>
                                

@@ -44,7 +44,20 @@ class Loanclerk extends CI_Controller {
         $this->load->model('Mem_model','loanclerk');
 
         $res = $this->loanclerk->getBiz($this->input->get_post('id'));
-        $data = array('title' => "Members",'contents' => "pages/status-table",'page' => "Members","links" => "main","res" => $res  );
+        if($res->num_rows()==0){
+            $this->load->view('pages/sorry');
+        }else{
+            $data = array('title' => "Members",'contents' => "pages/status-table",'page' => "Members","links" => "main","res" => $res  );
+            $this->load->view('templates/dashboard-header',$data);
+            $this->load->view('pages/loan-main',$data);
+        }
+    }
+
+    public function apply(){
+        $this->check_logged();
+        $this->load->model('Register','reg');
+        $res = $this->reg->viewMemCon($this->input->get_post('id'));
+        $data = array('title' => "Apply : Cooperative Loan",'contents' => "pages/apply-loan",'page' => "Apply","links" => "apply","res"=>$res );
         $this->load->view('templates/dashboard-header',$data);
         $this->load->view('pages/loan-main',$data);
     }
