@@ -98,7 +98,9 @@
                             <h5><center>You have been sent the following request for Approval</center></h5>
                             <br>
                             <img style="width: 200px;border:1px solid black;border-radius: 50%;padding: 10px; margin-left: 200px;" src="<?= base_url('public/contents-css/logo/admin.png');?>">
-                            <hr>Name <br>
+                            <h1 style="text-align: center;">Personal Information</h1><br>
+
+                            Name <br>
                             <?php echo "<p".base_url("manager/profile/?id=$row->MemberAccountID").">".ucfirst($row->LastName).", ".ucfirst($row->MiddleName)." ".ucfirst($row->FirstName)."</p>"; ?>
                             <hr>
                             Date Of Birth <br>
@@ -117,14 +119,38 @@
                             <?php echo "<p>".$row->PlaceofBirth."</p>"; ?>
                             <hr>Address <br>
                             <?php echo "<p>".$row->Address."</p>"; ?>
+                            <hr>
+                            <h1 style="text-align: center;">Business Information</h1><br>
                             <hr>Type of Business <br>
                             <?php echo "<p>".$row->TypeOfBusiness."</p>"; ?> 
-                            <hr>Capital<br>
-                            <?php echo "<p>".$row->Capital."</p>"; ?> 
+                            <hr>Address <br>
+                            <?php echo "<p>".$row->Address."</p>"; ?>
+                            <hr>Business Started <br>
+                            <?php echo "<p>".$row->date_created."</p>"; ?>
                             <hr>Gross Income<br>
-                            <?php echo "<p>".$row->GrossIncome."</p>"; ?> 
-                            <hr>Occupation<br>
-                            <?php echo "<p>".$row->Occupation."</p>"; ?> 
+                            <?php echo "<p>".$row->GrossIncome."</p>"; ?>
+                            <hr>Ownership<br>
+                            <?php echo "<p>".$row->Ownership."</p>"; ?>  
+                            <hr>Capital<br>
+                            <?php echo "<p>".$row->Capital."</p>"; ?>
+                            <hr>Trade Name<br>
+                            <?php echo "<p>".$row->TradeName."</p>"; ?>
+                            <hr> 
+                            <h1 style="text-align: center;">Employment Information</h1><br>
+                            <hr>Name of Firm<br>
+                            <?php echo "<p>".$row->NameofFirm."</p>"; ?> 
+                            <hr>Address <br>
+                            <?php echo "<p>".$row->Address."</p>"; ?>
+                            <hr>Employment Started<br>
+                            <?php echo "<p>".$row->YearStarted."</p>"; ?> 
+                            <hr>Gross Income<br>
+                            <?php echo "<p>".$row->GrossIncome."</p>"; ?>
+                            <hr>Position <br>
+                            <?php echo "<p>".$row->Position."</p>"; ?> 
+                             <hr>Take Home Pay <br>
+                            <?php echo "<p>".$row->NetTakeHomePay."</p>"; ?>
+                          
+
 
 
 
