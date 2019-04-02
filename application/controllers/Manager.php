@@ -25,13 +25,13 @@ class Manager extends CI_Controller {
 
         $this->load->model('Mem_model','manager');
 
-        $res = $this->loanclerk->getBiz($this->input->get_post('id'));
+        $res = $this->manager->getloan($this->input->get_post('id'));
         if($res->num_rows()==0){
             $this->load->view('pages/sorry');
         }else{
-            $data = array('title' => "Members",'contents' => "pages/status-table",'page' => "Members","links" => "main","res" => $res  );
+            $data = array('title' => "Overview : Cooperative Loan",'contents' => "pages/view-table",'page' => "Members","links" => "main","res" => $res  );
             $this->load->view('templates/dashboard-header',$data);
-            $this->load->view('pages/loan-main',$data);
+            $this->load->view('pages/manager-main',$data);
         }
     }
     
