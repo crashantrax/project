@@ -188,18 +188,9 @@ class Cashier extends CI_Controller {
         if($b_trade!="" && $b_type!="" && $b_address!="" && $b_grossIn!="" && $b_own!="" && $b_phone!="" && $b_cap!=""){
             $this->register->insertBusi($account_number,$b_type,$b_address,$b_dob,$b_grossIn,$b_own,$b_phone,$b_cap,$b_trade);
         }
-
-        
-
-        
-        
         redirect('cashier');
-
-      
-
-
-
     }
+    
     public function inserDeposit(){
         $this->check_logged();
         $this->load->model('Register','register');
