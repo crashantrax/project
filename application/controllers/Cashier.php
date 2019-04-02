@@ -59,11 +59,7 @@ class Cashier extends CI_Controller {
         $withdraw = $this->reg->viewWithdraws($this->input->get_post('id'));
         $deposits = $this->reg->viewDeposits($this->input->get_post('id'));
         $shares = $this->reg->viewShares($this->input->get_post('id'));
-
-
-
-        if($profile->num_rows()==0){
-            echo "Sorry, borrower doesn't exist. ";
+        
         if($res->num_rows()==0){
             $this->load->view('pages/sorry');
         }else{
