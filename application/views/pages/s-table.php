@@ -162,8 +162,8 @@
                             <br>
                             <br>
                             <hr>
-                                <a href="javascript:confirmDelete('<?=base_url("cashier/delete/".$row->MemberAccountID); ?>')" style="width: 100%;" class="btn btn-primary">Approve</a>
-                            <hr><a href="javascript:confirmDelete('<?=base_url("cashier/delete/".$row->MemberAccountID); ?>')" style="width:100%;" class="btn btn-danger" data-toggle="modal" data-target="#myModal">Reject</a>
+                                <a href="<?=base_url("manager/approve/id?=".$row->MemberAccountID); ?>" style="width: 100%;" class="btn btn-primary">Approve</a>
+                            <hr><a href="javascript:confirmDelete('<?=base_url("manager/delete/id?=".$row->MemberAccountID); ?>')" style="width:100%;" class="btn btn-danger" data-toggle="modal" data-target="#myModal">Reject</a>
                                   <div class="modal" id="myModal">
                                     <div class="modal-dialog">
                                       <div class="modal-content">

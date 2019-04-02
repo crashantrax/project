@@ -12,6 +12,13 @@ class Manager extends CI_Controller {
     	session_destroy();
     	redirect();
     }
+
+    public function delete($id){
+        $this->check_logged();
+        $this->load->model('Register','register');
+        $this->register->delete($id);
+        redirect('manager');
+    }
     
 
      public function register(){
