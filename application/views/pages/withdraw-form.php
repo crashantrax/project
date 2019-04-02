@@ -1,20 +1,23 @@
 		
 			<div class="container1">
 				<div class="col-md-12">
-					<form  method="POST" action="">
+					<?php $idn=$this->input->get_post('id');?>
+					<form  method="POST" action="<?=base_url("cashier/inserWithdraw/?id="."$idn")?>">
 						<div class="panel-primary">
 							<table align="center" border="0" class="table">
 		                        <tr>
 		                            <tr>
-		                                <th colspan="3"><div align="center"><?=$res->row('account_number')."-".ucfirst($res->row('LastName').", ".ucfirst($res->row('FirstName'))." ".ucfirst($res->row('MiddleName')))?></div></th>
+		                                <th colspan="3"><div align="center"><?=$prof->row('account_number')."-".ucfirst($prof->row('LastName').", ".ucfirst($prof->row('FirstName'))." ".ucfirst($prof->row('MiddleName')))?></div></th>
 		                            </tr>
 		                            <tr>
 		                                <th colspan="3"><div align="center">Account Balance:<?php
 		                                if($res->row('MemTotalBalance')==""){
-		                                	echo "<b style='color: red;
-}'> Insuficient Fund!</b>";
+		                                	echo "<b style='color: red;}'> Insuficient Fund!</b>";
+		                                	$bool="disabled";
 		                                }else{
-		                                	echo " P".$res->row('MemTotalBalance');
+		                                	$num = $res->row('MemTotalBalance');
+		                                	$bool="enable";
+		                                	echo " P".number_format($num,2);
 		                                }
 
 		                                 ?></div></th>
@@ -22,7 +25,7 @@
 		                            <tr>
 		                                <td>
 		                                    <div class="register-header" >Amount Withdraw:</div>
-		                                    <div class="register-input"><input style="width: 100%;" class="form-control"   type="text" name="amt_with"></div>
+		                                    <div class="register-input"><input oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" style="width: 100%;" class="form-control"   type="text" name="amt_with" <?=$bool?> ></div>
 		                                </td>     
 		            				</tr>
 		                            <tr>

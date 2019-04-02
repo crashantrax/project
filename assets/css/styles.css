@@ -2933,3 +2933,26 @@ element.style {
     background: #fff;
     transform: translate(-50%,10%);
 }
+
+.frm_container {
+    margin: 10px 0;
+}
+.frm_heading {
+    font-size: 14px;
+    width: 345px;
+    border-bottom: 1px solid #F0F0F0;
+    font-weight: 900;
+    margin-left: 30px;
+}
+
+.frm_inputs {
+    padding-left: 15px;
+}
+.info_view tr td:first-child {
+    font-size: 12px;
+    padding-right: 10px;
+    text-align: right;
+    width: 180px;
+    font-style: italic;
+    color: #6D6D6D;
+}

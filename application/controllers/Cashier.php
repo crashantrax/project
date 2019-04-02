@@ -9,6 +9,7 @@ class Cashier extends CI_Controller {
 
 
 
+
     public function error404(){
         $this->load->view('templates/error');
     }
@@ -19,6 +20,25 @@ class Cashier extends CI_Controller {
     public function logout(){
         session_destroy();
         redirect();
+    }
+
+    public function view(){
+           $this->check_logged();
+           $this->load->model('Register','reg');
+           $profile = $this->reg->viewProfile($this->input->get_post('id'));
+           $elem = $this->reg->getElem($this->input->get_post('id'));
+           $hs = $this->reg->getHs($this->input->get_post('id'));
+           $c = $this->reg->getC($this->input->get_post('id'));
+           $p = $this->reg->getP($this->input->get_post('id'));
+           $age = $this->reg->getAge($profile->row('DOB'));
+            $data = array('title' => "View Member",
+                'contents' => "pages/member-profile",
+                'page' => "View Profile",
+                "links" => "view",
+                "profileinfo"=>$profile,
+                "age"=>$age,"elem"=>$elem,"hs"=>$hs,"c"=>$c,"p"=>$p );
+            $this->load->view('templates/dashboard-header',$data);
+            $this->load->view('pages/cashier-main',$data);
     }
 
     public function register(){
@@ -34,13 +54,23 @@ class Cashier extends CI_Controller {
 
         $this->load->model('Register','reg');
        
+        $contribution = $this->reg->viewContribution($this->input->get_post('id'));
+        $profile = $this->reg->viewProfile($this->input->get_post('id'));
+        $withdraw = $this->reg->viewWithdraws($this->input->get_post('id'));
+        $deposits = $this->reg->viewDeposits($this->input->get_post('id'));
+        $shares = $this->reg->viewShares($this->input->get_post('id'));
 
-        $res = $this->reg->viewMemCon($this->input->get_post('id'));
 
+
+<<<<<<< HEAD
+        if($profile->num_rows()==0){
+            echo "Sorry, borrower doesn't exist. ";
+=======
         if($res->num_rows()==0){
             $this->load->view('pages/sorry');
+>>>>>>> 8610e5eb06038423accb6fda463baba87fe8e92c
         }else{
-            $data = array('title' => "View",'contents' => "pages/member-savings",'page' => "View Member","links" => "members","res" => $res );
+            $data = array('title' => "View",'contents' => "pages/member-savings",'page' => "View Member","links" => "members","profi" => $profile,"with" => $withdraw,"depo" => $deposits,"contri" => $contribution,"shares" => $shares );
             $this->load->view('templates/dashboard-header',$data);
             $this->load->view('pages/cashier-main',$data);
         }
@@ -51,8 +81,9 @@ class Cashier extends CI_Controller {
     public function deposit(){
         $this->check_logged();
         $this->load->model('Register','reg');
-        $res = $this->reg->viewMemCon($this->input->get_post('id'));
-        $data = array('title' => "Deposit",'contents' => "pages/deposit-form",'page' => "Deposits","links" => "deposit","res"=>$res );
+        $res = $this->reg->viewContribution($this->input->get_post('id'));
+        $profile = $this->reg->viewProfile($this->input->get_post('id'));
+        $data = array('title' => "Deposit",'contents' => "pages/deposit-form",'page' => "Deposits","links" => "deposit","res"=>$res,"prof"=>$profile );
         $this->load->view('templates/dashboard-header',$data);
         $this->load->view('pages/cashier-main',$data);
     }
@@ -60,8 +91,9 @@ class Cashier extends CI_Controller {
     public function withdraw(){
         $this->check_logged();
         $this->load->model('Register','reg');
-        $res = $this->reg->viewMemCon($this->input->get_post('id'));
-        $data = array('title' => "Withdraw",'contents' => "pages/withdraw-form",'page' => "Withdraw","links" => "withdraw","res"=>$res );
+        $res = $this->reg->viewContribution($this->input->get_post('id'));
+        $profile = $this->reg->viewProfile($this->input->get_post('id'));
+        $data = array('title' => "Withdraw",'contents' => "pages/withdraw-form",'page' => "Withdraw","links" => "withdraw","res"=>$res,"prof"=>$profile );
         $this->load->view('templates/dashboard-header',$data);
         $this->load->view('pages/cashier-main',$data);
     }
@@ -190,7 +222,21 @@ class Cashier extends CI_Controller {
         }
         redirect('cashier');
     }
+<<<<<<< HEAD
+    public function inserWithdraw(){
+        $this->check_logged();
+        $this->load->model('Register','register');
+        $amt_with = $this->input->post('amt_with');
+        $idn = $this->input->get_post('id');
+        if($amt_with!=""){
+            $this->register->insertWithdraw($amt_with,$idn);
+   
+        }
+        redirect('cashier');
+    }
+=======
     
+>>>>>>> 8610e5eb06038423accb6fda463baba87fe8e92c
     public function inserDeposit(){
         $this->check_logged();
         $this->load->model('Register','register');
@@ -200,7 +246,10 @@ class Cashier extends CI_Controller {
         if($amt_shared!="" && $amt_dep!=""){
             $this->register->insertDeposit($idn,$amt_shared,$amt_dep);
         }
+        redirect('cashier');
     }
+
+    
 
     private function main_contents(){
         $this->load->model('Mem_model','members');
