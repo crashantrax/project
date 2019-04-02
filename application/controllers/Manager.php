@@ -32,7 +32,12 @@ class Manager extends CI_Controller {
         //employee profile
         $this->check_logged();
 
-        $this->load->model('Register','register');
+        $this->load->model('m-register','register');
+        $username = $this->input->post('Username');  
+        $password = $this->input->post('Password');
+        $usertype = $this->input->post('Usertype');
+
+
         $fname = $this->input->post('first_name');  
         $mname = $this->input->post('middle_name');
         $lname = $this->input->post('last_name');
@@ -56,7 +61,7 @@ class Manager extends CI_Controller {
 
         //INSERT MEMBER ACCOUNTS
 
-        $this->register->register_profile($fname,$mname,$lname,$phone,$email,$pob,$dob,$nationality,$sex,$civil,$blood,$home,$stats,$account_number,$date);
+        $this->register->register_profile($fname,$mname,$lname,$phone,$email,$pob,$dob,$nationality,$sex,$civil,$blood,$home,$stats,$account_number,$date,$username,$password,$usertype);
 
 
 
