@@ -12,6 +12,7 @@ class Manager extends CI_Controller {
     	session_destroy();
     	redirect();
     }
+    
 
      public function register(){
         $this->check_logged();
