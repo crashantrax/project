@@ -57,6 +57,19 @@ class Register extends CI_Model {
             );
             $this->db->insert('member_highschool', $data);
     	}
+
+        public function insertBusinessInfo($typB,$cap,$grossin){
+            $id = $this->db->query("SELECT * FROM member_account WHERE account_number = ".$acc)->row('MemberAccountID');
+
+            $data = array(
+                'TypeofBusiness' => $typB,
+                'Capital' => $cap,
+                'GrossIncome' => $grossin,
+            );
+            $this->db->insert('member_business', $data);
+        }
+
+
     	public function insertCollege($acc,$e_year,$e_addr,$e_rem){
         	$id = $this->db->query("SELECT * FROM member_account WHERE account_number = ".$acc)->row('MemberAccountID');
 

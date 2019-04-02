@@ -61,11 +61,15 @@ class Manager extends CI_Controller {
 
     public function profile(){
         $this->check_logged();
-        $this->load->model('Mem_model','cashier');
-        $res = $this->cashier->getManager();
+        $this->load->model('Mem_model','members');
+        $res = $this->members->getMembersJoin();
         $data = array('title' => "Manager",'contents' => "pages/s-table",'page' => "Member's Profile","links" => "main","res" => $res  );
         $this->load->view('templates/dashboard-header',$data);
         $this->load->view('pages/manager-main',$data);
+        // $res = $this->members->getMemberJoin();
+        // $data = array('title' => "Manager",'contents' => "pages/s-table",'page' => "Member's Profile","links" => "main","res" => $mj  );
+
+
     }
 
 

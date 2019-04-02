@@ -99,7 +99,7 @@
                             <br>
                             <img style="width: 200px;border:1px solid black;border-radius: 50%;padding: 10px; margin-left: 200px;" src="<?= base_url('public/contents-css/logo/admin.png');?>">
                             <hr>Name <br>
-                            <?php echo "<a href=".base_url("manager/profile/?id=$row->StaffProfileID").">".ucfirst($row->LastName).", ".ucfirst($row->MiddleName)." ".ucfirst($row->FirstName)."</a>"; ?>
+                            <?php echo "<p".base_url("manager/profile/?id=$row->MemberAccountID").">".ucfirst($row->LastName).", ".ucfirst($row->MiddleName)." ".ucfirst($row->FirstName)."</p>"; ?>
                             <hr>
                             Date Of Birth <br>
                             <?php echo "<p>".$row->DOB."</p>"; ?>
@@ -117,8 +117,17 @@
                             <?php echo "<p>".$row->PlaceofBirth."</p>"; ?>
                             <hr>Address <br>
                             <?php echo "<p>".$row->Address."</p>"; ?>
-                            <hr>Civil Status <br>
-                            <?php echo "<p>".$row->CivilStatus."</p>"; ?>
+                            <hr>Type of Business <br>
+                            <?php echo "<p>".$row->TypeOfBusiness."</p>"; ?> 
+                            <hr>Capital<br>
+                            <?php echo "<p>".$row->Capital."</p>"; ?> 
+                            <hr>Gross Income<br>
+                            <?php echo "<p>".$row->GrossIncome."</p>"; ?> 
+                            <hr>Occupation<br>
+                            <?php echo "<p>".$row->Occupation."</p>"; ?> 
+
+
+
                             <br>
                             <br>
                             <h6>Please Approve or Reject this request using the buttons below</h6>
@@ -127,15 +136,15 @@
                             <br>
                             <br>
                             <hr>
-                                <a href="javascript:confirmDelete('<?=base_url("cashier/delete/".$row->StaffProfileID); ?>')" style="width: 100%;" class="btn btn-primary">Approve</a>
-                            <hr><a href="javascript:confirmDelete('<?=base_url("cashier/delete/".$row->StaffProfileID); ?>')" style="width:100%;" class="btn btn-danger" data-toggle="modal" data-target="#myModal">Reject</a>
+                                <a href="javascript:confirmDelete('<?=base_url("cashier/delete/".$row->MemberAccountID); ?>')" style="width: 100%;" class="btn btn-primary">Approve</a>
+                            <hr><a href="javascript:confirmDelete('<?=base_url("cashier/delete/".$row->MemberAccountID); ?>')" style="width:100%;" class="btn btn-danger" data-toggle="modal" data-target="#myModal">Reject</a>
                                   <div class="modal" id="myModal">
                                     <div class="modal-dialog">
                                       <div class="modal-content">
                                       
                                         <!-- Modal Header -->
                                         <div class="modal-header">
-                                          <h4 class="modal-title">Hi <?php echo "<a href=".base_url("manager/profile/?id=$row->StaffProfileID").">".ucfirst($row->LastName).", ".ucfirst($row->MiddleName)." ".ucfirst($row->FirstName)."</a>"; ?> </h4>
+                                          <h4 class="modal-title">Hi <?php echo "<a href=".base_url("manager/profile/?id=$row->MemberAccountID").">".ucfirst($row->LastName).", ".ucfirst($row->MiddleName)." ".ucfirst($row->FirstName)."</a>"; ?> </h4>
                                           <button type="button" class="close" data-dismiss="modal">&times;</button>
                                         </div>
                                         

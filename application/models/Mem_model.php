@@ -8,6 +8,12 @@ class Mem_model extends CI_Model {
         	return $query;
 	}
 
+        public function getMembersJoin() {
+                $query = $this->db->get('viewmemberjoin');
+                return $query;
+        }
+
+
         public function getManager() {
                 $query = $this->db->get('staff_profile');
                 return $query;
