@@ -1,5 +1,5 @@
 <div class="main-container">
-    <form id="regForm" method="POST" action="<?php echo base_url('cashier/register_members'); ?>">
+    <form id="regForm" method="POST" action="<?php echo base_url('Manager/register_employee'); ?>">
   <!-- One "tab" for each step in the form: -->
    <div class="tab">
         <table align="center" border="0" class="table"> 

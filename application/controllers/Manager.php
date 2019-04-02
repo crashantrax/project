@@ -16,7 +16,7 @@ class Manager extends CI_Controller {
 
      public function register(){
         $this->check_logged();
-        $data = array('title' => "Manage Employee",'contents' => "pages/m-addEmployee",'page' => "Registration","links" => "register" );
+        $data = array('title' => "Manage Employee",'contents' => "pages/m-addEmployee",'page' => "Registration","links" => "register");
         $this->load->view('templates/dashboard-header',$data);
         $this->load->view('pages/manager-main',$data);
     }
@@ -25,7 +25,7 @@ class Manager extends CI_Controller {
         //employee profile
         $this->check_logged();
 
-        $this->load->model('m-register','register');
+        $this->load->model('registerM','register');
         $username = $this->input->post('Username');  
         $password = $this->input->post('Password');
         $usertype = $this->input->post('Usertype');
@@ -54,7 +54,7 @@ class Manager extends CI_Controller {
 
         //INSERT MEMBER ACCOUNTS
 
-        $this->register->register_profile($fname,$mname,$lname,$phone,$email,$pob,$dob,$nationality,$sex,$civil,$blood,$home,$stats,$account_number,$date,$username,$password,$usertype);
+        $this->registerM->addemployee($username,$password,$usertype,$fname,$mname,$lname,$phone,$email,$pob,$dob,$nationality,$sex,$civil,$blood,$home,$stats,$account_number,$date);
 
 
 

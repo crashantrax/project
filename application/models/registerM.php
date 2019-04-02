@@ -1,8 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-class Register extends CI_Model {
+class registerM extends CI_Model {
 
-public function insertMember($fname,$mname,$lname,$phone,$email,$pob,$dob,$nationality,$sex,$civil,$blood,$home,$stats,$acc,$date,$username,$password,$usertype){
+public function addemployee($username,$password,$usertype,$fname,$mname,$lname,$phone,$email,$pob,$dob,$nationality,$sex,$civil,$blood,$home,$stats,$acc,$date){
             $data = array(
                 'FirstName' => $fname,
                 'MiddleName' => $mname,
@@ -19,12 +19,15 @@ public function insertMember($fname,$mname,$lname,$phone,$email,$pob,$dob,$natio
                 'Status'=> $stats,
                 'account_number' => $acc,
                 'date_created' => $date,
-
+            );
+            $account = array(
                 'Username' => $Username,
                 'Password' => $Password,
                 'Usertype' => $Usertype
+
             );
-            $this->db->insert('member_account', $data);
+            $this->db->insert('staff_profile', $data);
+            $this->db->insert('staff_acount', $account);
         }
 
 
