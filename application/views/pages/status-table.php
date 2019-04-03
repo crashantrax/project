@@ -1,70 +1,76 @@
+<center>
+<div style="margin-top: 2%;background-color:white; " class="table-responsive">
+<div style="width: 100%;background-color: white;text-align: center;padding: 10px;"><h4>Business Background</h4></div>
+<center>
+<table class="table table table-hover table-bordered" id="member" style="background-color: white;margin-top: 0%;width: 90%;">
+    <tr style="background-color: #F3F8FB;">
+        <th>Member Account ID</th>
+        <th>Member Business ID </th>
+        <th>Type Of Business </th>
+        <th>Address</th>
+        <th>Ownership</th>
+    </tr>
 
 
-<br>
-<table class="table" id="member">
-                    
-                    <hr>
-                    <h5 style="margin-left: 50%;padding-bottom: 10px;">Profile</h5>
-                    
-                    <tr>
-                        <th>
-                            <img style="width: 200px;border:1px solid black;border-radius: 50%;margin-left: 20%;" src="<?= base_url('public/contents-css/logo/admin.png');?>">
-                        </th>
-                        <th style="margin-left: -30%;" width="200">Member Account ID <br>
-                            <p><?=$res->row('MemberAccountID')?></p>
-                            <hr>
-                            Member Business ID <br>
-                            <p><?=$res->row('MemberBusinessID')?></p>
-                        </th>
-                        <th width="200">Type Of Business <br>
-                            <p><?=$res->row('TypeOfBusiness')?></p>
-                            <hr>
-                            Address <br>
-                            <p><?=$res->row('Address')?></p>
-                        </th>
-                        <th width="200">Ownership <br>
-                            <p><?=$res->row('Ownership')?></p>
-                            <hr>
-                            Capital <br>
-                            <p><?=$res->row('Capital')?></p>
-                        </th>
-                        <th width="200">Trade Name<br>
-                            <p><?=$res->row('TradeName')?></p>
-                            <hr>
-                            Telephone <br>
-                            <p><?=$res->row('TelNo.')?></p>
-                        </th>
-                        <th>Year Started <br>
-                            <p><?=$res->row('YearStarted')?></p>
-                        </th>
-                        <!-- <th width="" style="padding-top: 3%;">Member Account ID <br>
-                            <p><?=$res->row('MemberAccountID')?></p>
-                            <hr>
-                        </th>
-                        <th width="" style="padding-top: 3%;">Type Of Business<br>
-                            <p><?=$res->row('TypeOfBusiness')?></p>
-                            <hr>
-                        </th>
-                        <th width="" style="padding-top: 3%;">Address<br>
-                            <?=$res->row('Address')?>
-                            <hr>
-                        </th>
-                        <th width="" style="padding-top: 3%;">Ownership<br>
-                            <?=$res->row('Ownership')?>
-                            <hr>
-                        </th>
-                        <th width="" style="padding-top: 3%;">Capital<br>
-                            <?=$res->row('Capital')?>
-                            <hr>
-                        </th>
-                        <th width="" style="padding-top: 3%;">Trade Name<br>
-                            <?=$res->row('TradeName')?>
-                            <hr>
-                        </th> -->
-                    </tr>
-                    <tr>
+    <?php
+    if($res->num_rows()>0){
+        $count=1;
+    $counter=1;
+    foreach ($res->result() as $row){
+        if($counter==1){
+            $num = "";
+            $counter=0;
+        }
+        else{
+            $num = "none";
+            $counter=1;
+        }
+        // echo "<td>".$row->account_number."</td>";
+        echo "<td>".$row->MemberAccountID."</td>";
+        echo "<td>".$row->MemberBusinessID."</td>";
+        echo "<td>".$row->TypeOfBusiness."</td>";
+        echo "<td>".$row->Address."</td>";
+        echo "<td>".$row->Ownership."</td>";
+        $count++;
                         
-                    </tr>
-                    
-                </table>
+    ?>
+    <?php } ?>
+     <?php }else{
+         echo "<tr><td>0 Results<td>";
+     }?> 
+     <tr style="background-color: #F3F8FB;">
+        <th>Capital</th>
+        <th>Trade Name</th>
+        <th>Telephone</th>
+        <th>Year Started</th>
+        <th></th>
+    </tr>
+    <?php
+    if($res->num_rows()>0){
+        $count=1;
+    $counter=1;
+    foreach ($res->result() as $row){
+        if($counter==1){
+            $num = "";
+            $counter=0;
+        }
+        else{
+            $num = "none";
+            $counter=1;
+        }
+        // echo "<td>".$row->account_number."</td>";
+        echo "<td>".$row->Capital."</td>";
+        echo "<td>".$row->TradeName."</td>";
+        echo "<td>".$row->TelNo."</td>";
+        echo "<td>".$row->YearStarted."</td>";
+        $count++;
+                        
+    ?>
+    <?php } ?>
+     <?php }else{
+         echo "<tr><td>0 Results<td>";
+     }?> 
+
+ </table> </div>
+               
                

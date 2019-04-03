@@ -86,6 +86,7 @@ class Cashier extends CI_Controller {
         $withdraw = $this->reg->viewWithdraws($this->input->get_post('id'));
         $deposits = $this->reg->viewDeposits($this->input->get_post('id'));
         $shares = $this->reg->viewShares($this->input->get_post('id'));
+<<<<<<< HEAD
 
 
 
@@ -95,6 +96,11 @@ class Cashier extends CI_Controller {
         if($profile->num_rows()==0){
             $this->load->view('pages/sorry');
 
+=======
+        
+        if($res->num_rows()==0){
+            $this->load->view('pages/sorry');
+>>>>>>> f152cf26c539c396a4ae9820c2e575a3b1c519ae
         }else{
             $data = array('title' => "View",'contents' => "pages/member-savings",'page' => "View Member","links" => "members","profi" => $profile,"with" => $withdraw,"depo" => $deposits,"contri" => $contribution,"shares" => $shares );
             $this->load->view('templates/dashboard-header',$data);
@@ -248,7 +254,10 @@ class Cashier extends CI_Controller {
         }
         redirect('cashier');
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> f152cf26c539c396a4ae9820c2e575a3b1c519ae
     public function inserWithdraw(){
         $this->check_logged();
         $this->load->model('Register','register');
@@ -260,7 +269,10 @@ class Cashier extends CI_Controller {
         }
         redirect('cashier');
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> f152cf26c539c396a4ae9820c2e575a3b1c519ae
     public function inserDeposit(){
         $this->check_logged();
         $this->load->model('Register','register');
@@ -291,20 +303,6 @@ class Cashier extends CI_Controller {
             echo 'alert("Access Forbidden!");'; 
             echo 'window.location.href = "Error404";';
             echo '</script>';
-            // $userType = $this->session->userdata('user_type');
-            // if('admin'==$userType){
-            //     redirect('admin');
-            // }else if ('loan_clerk'==$userType){
-            //     redirect('loanclerk');
-            // }else if ('manager'==$userType){
-            //     redirect('manager');
-            // }else{
-            //     echo '<script type="text/javascript">'; 
-            //     echo 'alert("Access Forbidden!");'; 
-            //     echo 'window.location.href = "Error404";';
-            //     echo '</script>';
-            //     exit;
-            // }
         }
         else{
             return true;

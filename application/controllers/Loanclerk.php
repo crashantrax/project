@@ -76,13 +76,13 @@ class Loanclerk extends CI_Controller {
 
     public function inserLoan(){
         $this->check_logged();
-        $this->load->model('Register','register');
+        $this->load->model('Loanapp','apply');
         $acc_num = $this->input->post('acc_num');
         $loan = $this->input->post('loan');
         $type = $this->input->post('type');
         $idn = $this->input->get_post('id');
         if($acc_num!="" && $loan!="" && $type!=""){
-            $this->register->insertLoan($idn,$acc_num,$loan,$type);
+            $this->apply->insertLoan($idn,$acc_num,$loan,$type);
         }
     }
 

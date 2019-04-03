@@ -13,10 +13,13 @@ class Register extends CI_Model {
 		$this->db->query("DELETE FROM family_info WHERE MemberAccountID =".$id);
 		$this->db->query("DELETE FROM user_employment WHERE MemberAccountID =".$id);
 		$this->db->query("DELETE FROM member_business WHERE MemberAccountID =".$id);
+<<<<<<< HEAD
         $this->db->query("DELETE FROM member_withdrawallogs WHERE MemberAccountID =".$id);
         $this->db->query("DELETE FROM member_sharelogs WHERE MemberAccountID =".$id);
         $this->db->query("DELETE FROM member_depositlogs WHERE MemberAccountID =".$id);
         $this->db->query("DELETE FROM member_contribution WHERE MemberAccountID =".$id);
+=======
+>>>>>>> f152cf26c539c396a4ae9820c2e575a3b1c519ae
 	}
 	public function insertMember($fname,$mname,$lname,$phone,$email,$pob,$dob,$nationality,$sex,$civil,$blood,$home,$stats,$acc,$date){
             $data = array(
@@ -149,6 +152,7 @@ class Register extends CI_Model {
             $this->db->insert('member_business', $data);
 
     	}
+<<<<<<< HEAD
         public function updateMember($id){
             ata = array(
                 'FirstName' => $fname,
@@ -230,22 +234,33 @@ class Register extends CI_Model {
         }
             
 
+=======
+    	public function viewMemCon($id){
+    		return $this->db->query("CALL viewMemContrib("."'".$id."'".")");
+    	}
+
+>>>>>>> f152cf26c539c396a4ae9820c2e575a3b1c519ae
         public function insertDeposit($acc,$amt_shared,$amt_dep){
             $id = $this->db->query("SELECT * FROM member_account WHERE MemberAccountID = ".$acc)->row('MemberAccountID');
-                $data1 = array(
+            $count =  $this->db->query("SELECT * FROM member_contribution WHERE MemberAccountID = $id ");
+            $res = $count->num_rows();
+            if($res==0){
+                $data = array(
+                'MemberTotalSharesCapital' => $amt_shared,
+                'MemTotalBalance' => $amt_dep,
+                'YrsofMembership' => 1,
+                'MemberAccountID'=>$id
+                );
+                $this->db->insert('member_contribution', $data);
+            }else{
+                $data = array(
                 'MemberDepositAmount' => $amt_dep,
                 'PaymentDate' => date('Y-m-d'),
                 'MemberAccountID' => $id
                 );
-                $data2 = array(
-                'MemberSharesAmount' => $amt_shared,
-                'PaymentDate' => date('Y-m-d'),
-                'MemberAccountID' => $id
-                );
-                $this->db->insert('member_depositlogs', $data1);
-                $this->db->insert('member_sharelogs', $data2);
+                $this->db->insert('member_depositlogs', $data);
             
-            
+            }
             redirect('cashier');
         }
 
@@ -257,11 +272,15 @@ class Register extends CI_Model {
                 'MemberAccountID' => $id
                 );
                $this->db->insert('member_withdrawallogs', $data);
+<<<<<<< HEAD
                redirect('cashier');
            }
 
 
 
+=======
+           }
+>>>>>>> f152cf26c539c396a4ae9820c2e575a3b1c519ae
         public function insertLoan($acc,$acc_num,$loan,$type){
             $id = $this->db->query("SELECT * FROM member_account WHERE MemberAccountID = ".$acc)->row('MemberAccountID');
             $count =  $this->db->query("SELECT * FROM loanapply WHERE MemberAccountID = $id ");
@@ -280,7 +299,10 @@ class Register extends CI_Model {
             
             }
             redirect('loanclerk');
+<<<<<<< HEAD
 
+=======
+>>>>>>> f152cf26c539c396a4ae9820c2e575a3b1c519ae
         }
 }
 

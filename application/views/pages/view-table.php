@@ -1,13 +1,13 @@
 <div style="margin-top: 2%;background-color:white; " class="table-responsive">
-<div style="width: 100%;background-color: white;text-align: center;padding: 10px;"><h4>Records</h4></div>
-<table class="table table table-hover table-bordered" id="member" style="background-color: white;margin-top: 0%;">
-                    <tr>
+<div style="width: 100%;background-color: white;text-align: center;padding: 10px;"><h4>Overview</h4></div>
+<center>
+<table class="table table table-hover table-bordered" id="member" style="background-color: white;margin-top: 0%;width: 80%;">
+                    <tr style="background-color: #F3F8FB;">
                         <th>#</th>
                         <!-- <th>Account No.</th> -->
-                        <th>Name</th>
-                        <th>Date</th>
+                        <th>Check Date</th>
+                        <th>Amount</th>
                         <th>Status</th>
-                        <th>Action</th>
                     </tr>
 
 
@@ -26,16 +26,12 @@
                         }
                         echo "<tr id='col' class=".$num."><td>".$count."</td>";
                         // echo "<td>".$row->account_number."</td>";
-                        echo "<td><a href=".base_url("manager/profile/?id=$row->MemberAccountID").">".ucfirst($row->LastName).", ".ucfirst($row->MiddleName)." ".ucfirst($row->FirstName)."</a></td>";
-                        echo "<td>".$row->date_created."</td>";
-                        echo "<td>".$row->Status."</td>";
+                        echo "<td>".$row->LoanDate."</td>";
+                        echo "<td>".$row->LoanAmount."</td>";
+                        echo "<td>".$row->status."</td>";
                         $count++;
                         
                     ?>
-                    <td>
-                        <a href="<?=base_url("manager/view/?id=$row->MemberAccountID");?>" style="width: 50%" class="btn btn-primary">View</a>
-                        
-                    </td>
                     <?php } ?>
                     <?php }else{
                         echo "<tr><td>0 Results<td>";

@@ -19,7 +19,7 @@
                  </td>
                  <td>
                     <div class="register-header" >User Type:</div>
-                        <div>
+                        <div class="register-input">
                             <select class="select-menu form-control"" name="blood_type">
                                 <option>Cashier</option>
                                 <option>Manager</option>
