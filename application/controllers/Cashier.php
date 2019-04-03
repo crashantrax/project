@@ -332,13 +332,13 @@ class Cashier extends CI_Controller {
         }
 
 
-        $hs_year = $this->input->post('hs_year');
+        /*$hs_year = $this->input->post('hs_year');
         $hs_addr = $this->input->post('hs_address');
         $hs_rem = $this->input->post('hs_remarks');
 
         if($hs_year!="" && $hs_addr!="" && $hs_rem!=""){
             $this->register->updateHighschool($id,$hs_year,$hs_addr,$hs_rem);
-        }
+        }*/
 /*
         $c_year = $this->input->post('c_year');
         $c_addr = $this->input->post('c_address');
