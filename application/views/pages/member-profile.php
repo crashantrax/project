@@ -317,6 +317,361 @@
                                 </div>
                             </div>
                         </td>
-                        
+                        <td>
+                            <div class="frm_container">
+                                <div class="frm_heading"><span>Family Background</span></div>
+                                <div class="frm_inputs">
+                                    <table class="info_view">
+                                        <tbody><tr>
+                                            <td>Spouse First Name:</td>
+                                            <td>
+                                                <?php 
+                                                    if($fbg->num_rows()>0){
+                                                        echo $fbg->row()->spouse_fn; 
+                                                    }else{
+                                                        echo "None";
+                                                    }
+                                                ?>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Spouse Middle Name:</td>
+                                            <td>
+                                                <?php 
+                                                    if($fbg->num_rows()>0){
+                                                        echo $fbg->row()->spouse_mn; 
+                                                    }else{
+                                                        echo "None";
+                                                    }
+                                                ?>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Spouse Last Name:</td>
+                                            <td>
+                                                <?php 
+                                                    if($fbg->num_rows()>0){
+                                                        echo $fbg->row()->spouse_ln; 
+                                                    }else{
+                                                        echo "None";
+                                                    }
+                                                ?>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>No. of Children</td>
+                                            <td>
+                                                <?php 
+                                                    if($fbg->num_rows()>0){
+                                                        echo $fbg->row()->NoofChildren; 
+                                                    }else{
+                                                        echo "None";
+                                                    }
+                                                ?>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>Occupation</td>
+                                            <td>
+                                                <?php 
+                                                    if($fbg->num_rows()>0){
+                                                        echo $fbg->row()->Occupation; 
+                                                    }else{
+                                                        echo "None";
+                                                    }
+                                                ?>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Gross Income</td>
+                                            <td>
+                                                <?php 
+                                                    if($fbg->num_rows()>0){
+                                                        echo $fbg->row()->CapitalGrossIncome; 
+                                                    }else{
+                                                        echo "None";
+                                                    }
+                                                ?>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Date of Birth:</td>
+                                            <td>
+                                                <?php 
+                                                    if($fbg->num_rows()>0){
+                                                        echo $fbg->row()->DateofBirth; 
+                                                    }else{
+                                                        echo "None";
+                                                    }
+                                                ?>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Postion:</td>
+                                            <td>
+                                                <?php 
+                                                    if($fbg->num_rows()>0){
+                                                        echo $fbg->row()->Position; 
+                                                    }else{
+                                                        echo "None";
+                                                    }
+                                                ?>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                        </tr>
+    
+                         
+                         
+                                    </tbody></table>
+                                </div>
+                            </div>
+                            
+                        </td>
+                        <tr>
+                            <td>
+                            <div class="frm_container">
+                                <div class="frm_heading"><span>Employment Info</span></div>
+                                <div class="frm_inputs">
+                                    <table class="info_view">
+                                        <tbody><tr>
+                                            <td>Name of Firm:</td>
+                                            <td>
+                                                <?php 
+                                                    if($e->num_rows()>0){
+                                                        echo $e->row()->NameofFirm; 
+                                                    }else{
+                                                        echo "None";
+                                                    }
+                                                ?>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>Address:</td>
+                                            <td>
+                                                <?php 
+                                                    if($e->num_rows()>0){
+                                                        echo $e->row()->Address; 
+                                                    }else{
+                                                        echo "None";
+                                                    }
+                                                ?>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Employment Started:</td>
+                                            <td>
+                                                <?php 
+                                                    if($e->num_rows()>0){
+                                                        echo $e->row()->DateofEmploymentStarted; 
+                                                    }else{
+                                                        echo "None";
+                                                    }
+                                                ?>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Gross Income:</td>
+                                            <td>
+                                                <?php 
+                                                    if($e->num_rows()>0){
+                                                        echo $e->row()->GrossIncome; 
+                                                    }else{
+                                                        echo "None";
+                                                    }
+                                                ?>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Posistion:</td>
+                                            <td>
+                                                <?php 
+                                                    if($e->num_rows()>0){
+                                                        echo $e->row()->Position; 
+                                                    }else{
+                                                        echo "None";
+                                                    }
+                                                ?>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Telephone No.:</td>
+                                            <td>
+                                                <?php 
+                                                    if($e->num_rows()>0){
+                                                        echo $e->row()->TelNo; 
+                                                    }else{
+                                                        echo "None";
+                                                    }
+                                                ?>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Take-Home Pay:</td>
+                                            <td>
+                                                <?php 
+                                                    if($e->num_rows()>0){
+                                                        echo $e->row()->NetTakeHomePay; 
+                                                    }else{
+                                                        echo "None";
+                                                    }
+                                                ?>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                        </tr>
+
+                         
+                         
+                                    </tbody></table>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="frm_container">
+                                <div class="frm_heading"><span>Business Info</span></div>
+                                <div class="frm_inputs">
+                                    <table class="info_view">
+                                        <tbody><tr>
+                                            <td>Business Type:</td>
+                                            <td>
+                                                <?php 
+                                                    if($b->num_rows()>0){
+                                                        echo $b->row()->TypeOfBusiness; 
+                                                    }else{
+                                                        echo "None";
+                                                    }
+                                                ?>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>Address:</td>
+                                            <td>
+                                                <?php 
+                                                    if($b->num_rows()>0){
+                                                        echo $b->row()->Address; 
+                                                    }else{
+                                                        echo "None";
+                                                    }
+                                                ?>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Ownership:</td>
+                                            <td>
+                                                <?php 
+                                                    if($b->num_rows()>0){
+                                                        echo $b->row()->Ownership; 
+                                                    }else{
+                                                        echo "None";
+                                                    }
+                                                ?>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Capital:</td>
+                                            <td>
+                                                <?php 
+                                                    if($b->num_rows()>0){
+                                                        echo $b->row()->Capital; 
+                                                    }else{
+                                                        echo "None";
+                                                    }
+                                                ?>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Trade Name:</td>
+                                            <td>
+                                                <?php 
+                                                    if($b->num_rows()>0){
+                                                        echo $b->row()->TradeName; 
+                                                    }else{
+                                                        echo "None";
+                                                    }
+                                                ?>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Telephone No.:</td>
+                                            <td>
+                                                <?php 
+                                                    if($b->num_rows()>0){
+                                                        echo $b->row()->TelNo; 
+                                                    }else{
+                                                        echo "None";
+                                                    }
+                                                ?>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Year Started:</td>
+                                            <td>
+                                                <?php 
+                                                    if($b->num_rows()>0){
+                                                        echo $b->row()->YearStarted; 
+                                                    }else{
+                                                        echo "None";
+                                                    }
+                                                ?>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Gross Income:</td>
+                                            <td>
+                                                <?php 
+                                                    if($b->num_rows()>0){
+                                                        echo $b->row()->GrossIncome; 
+                                                    }else{
+                                                        echo "None";
+                                                    }
+                                                ?>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                         
+                         
+                                    </tbody></table>
+                                </div>
+                            </div>
+                        </td>
+                        <?php $idn=$this->input->get_post('id');?>
+                        <td><a style="width: 30%" href="<?=base_url("cashier/edit/?id="."$idn")?>" class="btn btn-success">Edit</a>&nbsp;<a style="width: 30%" href="<?=base_url();?>" class="btn btn-danger">Cancel</a></td>
                     </tr>
+                </table> 
+            </div>
+        </td>
+</table>
+            
+              
                         

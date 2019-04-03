@@ -84,6 +84,12 @@
                                  else if($links == "withdraw"){
                                      echo "<li><span>Withdraw</span></li>";
                                  }
+                                 else if($links == "view"){
+                                     echo "<li><span>View</span></li>";
+                                 }
+                                 else if($links == "edit"){
+                                     echo "<li><span>Edit</span></li>";
+                                 }
                                 ?>
                                
 
