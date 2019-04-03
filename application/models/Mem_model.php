@@ -3,10 +3,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Mem_model extends CI_Model {
 
+
+        public function loan(){
+                $query = $this->db->get('loantype');
+                return $query;
+        }
+
         public function getMembers() {
         	$query = $this->db->get('members');
         	return $query;
 	}
+
+        public function getMembersJoin() {
+                $query = $this->db->get('viewmemberjoin');
+                return $query;
+        }
+
 
         public function getManager() {
                 $query = $this->db->get('staff_profile');
@@ -18,8 +30,16 @@ class Mem_model extends CI_Model {
                 return $query;
         }
 
-        public function getBiz(){
+        public function getBiz($status){
+                $this->db->where('MemberAccountID',$status);
                 $query = $this->db->get('member_business');
+                return $query;
+        }
+
+        public function getReview($status){
+                $this->db->where('MemberAccountID',$status);
+                $query = $this->db->get('members');
+                return $query;
         }
 
 	public function getEduc($profileID) {

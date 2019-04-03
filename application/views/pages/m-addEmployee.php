@@ -1,11 +1,45 @@
 <div class="main-container">
-    <form id="regForm" method="POST" action="<?php echo base_url('manager/register_employee'); ?>">
+    <form id="regForm" method="POST" action="<?php echo base_url('Manager/register_employee'); ?>">
   <!-- One "tab" for each step in the form: -->
+   <div class="tab">
+        <table align="center" border="0" class="table"> 
+             <tr>
+                <tr>
+                    <th colspan="3"><div align="center">Create Accout</div></th>
+                </tr>
+                <tr>
+                                
+                 <td>
+                    <div  class="register-header" >Username:</div>
+                    <div class="register-input"><input id="required" class="form-control" type="text" name="first_name" ></div>
+                 </td>
+                 <td>
+                    <div class="register-header" >Password:</div>
+                    <div class="register-input"><input class="form-control"   type="text" name="middle_name"></div>
+                 </td>
+                 <td>
+                    <div class="register-header" >User Type:</div>
+                        <div>
+                            <select class="select-menu form-control"" name="blood_type">
+                                <option>Cashier</option>
+                                <option>Manager</option>
+                                <option>Loan Clerk</option>
+                            </select>
+                        </div>
+                </td>
+                                
+        </tr>
+             </tr>
+        </table>
+  </div>
+
+
+
   <div class="tab">
             <table align="center" border="0" class="table">
                         <tr>
                             <tr>
-                                <th colspan="3"><div align="center">Personal Informations</div></th>
+                                <th colspan="3"><div align="center">Personal Information</div></th>
                             </tr>
                             <tr>
                                 
@@ -118,26 +152,27 @@
                                     <div class="register-header" >Phone/Cellphone:</div>
                                     <div class="register-input"><input class="form-control"  type="text" name="phone_no"></div>
                                 </td>
-                                <td>
-                                    <div class="register-header" >Email Address:</div>
-                                    <div class="register-input"><input class="form-control"   type="text" name="email_address"></div>
-                                </td>
-                                
-                            </tr>
-                            <tr>
-                                <td colspan="2">
+                                 <td colspan="2">
                                     <div class="register-header" >Home Address:</div>
                                     <div class="register-input"><input class="form-control" type="text" name="home_address"></div>
                                 </td>
                                 
-                                
-                         </tr>
+                            </tr>
                  </tr>
         </table>
   </div>
+
+ 
+ 
+
+
+
+
   <div style="overflow:auto;">
     <div style="float:right;">
       <a class="btn btn-danger"  href="<?=base_url()?>">Cancel</a>
+      <button class="btn" type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+      <button class="btn btn-success" type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
       <button class="btn btn-success" id="submit">Submit</button>
     </div>
   </div>
@@ -151,7 +186,7 @@
     <span class="step"></span>
   </div>
                 
-        
+           
     </form>
 </div>
 <script src="<?=base_url('public/contents-script/next.js')?>"></script>

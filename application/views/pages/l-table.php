@@ -1,5 +1,5 @@
 <div style="margin-top: 2%;">
-<div style="width: 100%;text-align: center;padding: 10px;"><h4>History</h4></div>
+<div style="width: 100%;text-align: center;padding: 10px;"><h4>Loan Applications</h4></div>
 <table class="table" id="member" style="margin-top: 0%;">
                     <tr>
                         <th>#</th>
@@ -7,6 +7,7 @@
                         <th>Name</th>
                         <th>Date Created</th>
                         <th>Status</th>
+                        <th>Actions</th>
                     </tr>
 
 
@@ -31,11 +32,14 @@
                         $count++;
                         
                     ?>
-
+                    <td>
+                        <a href="<?=base_url("loanclerk/apply/?id=$row->MemberAccountID");?>" style="width: 50%" class="btn btn-primary">Apply</a>
+                        
+                    </td>
                     <?php } ?>
                     <?php }else{
                         echo "<tr><td>0 Results<td>";
-                    }?> 
+                    }?>
                     </tr>
 
                 </table>

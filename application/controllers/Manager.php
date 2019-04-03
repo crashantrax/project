@@ -13,17 +13,17 @@ class Manager extends CI_Controller {
     	redirect();
     }
 
-    public function profile(){
-        $this->load->model('Mem_model','manager');
-        $res = $this->manager->getManager();
-        $data = array('title' => "Manager",'contents' => "pages/profile-table",'page' => "Members","links" => "main","res" => $res  );
-        $this->load->view('templates/dashboard-header',$data);
-        $this->load->view('pages/manager-profile',$data);
+    public function delete($id){
+        $this->check_logged();
+        $this->load->model('Register','register');
+        $this->register->delete($id);
+        redirect('manager');
     }
+    
 
      public function register(){
         $this->check_logged();
-        $data = array('title' => "Manage Employee",'contents' => "pages/m-addEmployee",'page' => "Registration","links" => "register" );
+        $data = array('title' => "Manage Employee",'contents' => "pages/m-addEmployee",'page' => "Registration","links" => "register");
         $this->load->view('templates/dashboard-header',$data);
         $this->load->view('pages/manager-main',$data);
     }
@@ -32,7 +32,12 @@ class Manager extends CI_Controller {
         //employee profile
         $this->check_logged();
 
-        $this->load->model('Register','register');
+        $this->load->model('registerM','register');
+        $username = $this->input->post('Username');  
+        $password = $this->input->post('Password');
+        $usertype = $this->input->post('Usertype');
+
+
         $fname = $this->input->post('first_name');  
         $mname = $this->input->post('middle_name');
         $lname = $this->input->post('last_name');
@@ -56,7 +61,7 @@ class Manager extends CI_Controller {
 
         //INSERT MEMBER ACCOUNTS
 
-        $this->register->register_profile($fname,$mname,$lname,$phone,$email,$pob,$dob,$nationality,$sex,$civil,$blood,$home,$stats,$account_number,$date);
+        $this->registerM->addemployee($username,$password,$usertype,$fname,$mname,$lname,$phone,$email,$pob,$dob,$nationality,$sex,$civil,$blood,$home,$stats,$account_number,$date);
 
 
 
@@ -66,11 +71,24 @@ class Manager extends CI_Controller {
         $this->load->view('templates/error');
     }
 
+    public function profile(){
+        $this->check_logged();
+        $this->load->model('Mem_model','members');
+        $res = $this->members->getMembersJoin();
+        $data = array('title' => "Manager",'contents' => "pages/s-table",'page' => "Member's Profile","links" => "main","res" => $res  );
+        $this->load->view('templates/dashboard-header',$data);
+        $this->load->view('pages/manager-main',$data);
+        // $res = $this->members->getMemberJoin();
+        // $data = array('title' => "Manager",'contents' => "pages/s-table",'page' => "Member's Profile","links" => "main","res" => $mj  );
+
+
+    }
+
 
     private function main_contents(){
-        $this->load->model('Mem_model','manager');
-        $res = $this->manager->getManager();
-        $data = array('title' => "Manager",'contents' => "pages/m-table",'page' => "Members","links" => "main","res" => $res  );
+        $this->load->model('Mem_model','members');
+        $res = $this->members->getMembers();
+        $data = array('title' => "Manager",'contents' => "pages/m-table",'page' => "Manager","links" => "main","res" => $res);
         $this->load->view('templates/dashboard-header',$data);
         $this->load->view('pages/manager-main',$data);
     }

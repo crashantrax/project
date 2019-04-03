@@ -1,4 +1,4 @@
-<table class="table table-bordered" id="member">
+<table class="table table-bordered" id="member" >
                     <tr>
                         <th>#</th>
                         <th>Account No.</th>

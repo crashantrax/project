@@ -61,6 +61,19 @@ class Register extends CI_Model {
             );
             $this->db->insert('member_highschool', $data);
     	}
+
+        public function insertBusinessInfo($typB,$cap,$grossin){
+            $id = $this->db->query("SELECT * FROM member_account WHERE account_number = ".$acc)->row('MemberAccountID');
+
+            $data = array(
+                'TypeofBusiness' => $typB,
+                'Capital' => $cap,
+                'GrossIncome' => $grossin,
+            );
+            $this->db->insert('member_business', $data);
+        }
+
+
     	public function insertCollege($acc,$e_year,$e_addr,$e_rem){
         	$id = $this->db->query("SELECT * FROM member_account WHERE account_number = ".$acc)->row('MemberAccountID');
 
@@ -201,6 +214,7 @@ class Register extends CI_Model {
             
             redirect('cashier');
         }
+<<<<<<< HEAD
         public function insertWithdraw($amnt,$acc){
             $id = $this->db->query("SELECT * FROM member_account WHERE MemberAccountID = ".$acc)->row('MemberAccountID');
             $data = array(
@@ -210,6 +224,27 @@ class Register extends CI_Model {
                 );
                $this->db->insert('member_withdrawallogs', $data);
 
+=======
+
+        public function insertLoan($acc,$acc_num,$loan,$type){
+            $id = $this->db->query("SELECT * FROM member_account WHERE MemberAccountID = ".$acc)->row('MemberAccountID');
+            $count =  $this->db->query("SELECT * FROM loanapply WHERE MemberAccountID = $id ");
+            $res = $count->num_rows();
+            if($res==0){
+                $data = array(
+                'account_number' => $acc_num,
+                'loan' => $loan,
+                'loantype' => $type,
+                'MemberAccountID'=>$id
+
+                );
+                $this->db->insert('loanapply', $data);
+            }else{
+                echo "Success! Loan Application Submitted";
+            
+            }
+            redirect('loanclerk');
+>>>>>>> 8610e5eb06038423accb6fda463baba87fe8e92c
         }
 }
 
