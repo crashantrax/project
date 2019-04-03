@@ -14,7 +14,8 @@ class Mem_model extends CI_Model {
         	return $query;
 	}
 
-        public function getMembersJoin() {
+        public function getMembersJoin($id) {
+                $this->db->where('MemberAccountID',$id);
                 $query = $this->db->get('viewmemberjoin');
                 return $query;
         }
