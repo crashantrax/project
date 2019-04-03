@@ -7,20 +7,19 @@
                 <tr>
                     <th colspan="3"><div align="center">Create Accout</div></th>
                 </tr>
-                <tr>
-                                
+                <tr>      
                  <td>
                     <div  class="register-header" >Username:</div>
-                    <div class="register-input"><input id="required" class="form-control" type="text" name="first_name" ></div>
+                    <div class="register-input"><input id="required" class="form-control" type="text" name="Username" ></div>
                  </td>
                  <td>
                     <div class="register-header" >Password:</div>
-                    <div class="register-input"><input class="form-control"   type="text" name="middle_name"></div>
+                    <div class="register-input"><input class="form-control"   type="text" name="Password"></div>
                  </td>
                  <td>
                     <div class="register-header" >User Type:</div>
                         <div class="register-input">
-                            <select class="select-menu form-control"" name="blood_type">
+                            <select class="select-menu form-control"" name="Usertype">
                                 <option>Cashier</option>
                                 <option>Manager</option>
                                 <option>Loan Clerk</option>
