@@ -182,7 +182,21 @@ class Register extends CI_Model {
             $this->db->where('MemberAccountID',$id);
             $this->db->update('member_elementary', $data);
         }
+<<<<<<< HEAD
        
+=======
+        public function updateHighschool($id,$e_year,$e_addr,$e_rem){
+            $id = $this->db->query("SELECT * FROM member_account WHERE account_number = ".$acc)->row('MemberAccountID');
+
+            $data = array(
+                'HighschoolDate' => $e_year,
+                'HighschoolAddress' => $e_addr,
+                'HighschoolRemarks' => $e_rem
+            );
+            $this->db->where('MemberAccountID',$id);
+            $this->db->update('member_elementary', $data);
+        }
+>>>>>>> 0b34060c424df3c7e2503220005a1aef206ee112
         
         public function viewProfile($id){
              $this->db->where('MemberAccountID',$id);

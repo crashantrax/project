@@ -6,7 +6,6 @@ class Manager extends CI_Controller {
 		$this->check_logged();
       	$this->main_contents();
     }
-    //menu options
 
     public function logout(){
     	session_destroy();
@@ -51,6 +50,8 @@ class Manager extends CI_Controller {
         $username = $this->input->post('Username');  
         $password = $this->input->post('Password');
         $usertype = $this->input->post('Usertype');
+        $this->register->register($username,$password,$usertype);
+        $id = $this->register->getUserID($username,$password)->row('UserAccountID');
 
 
         $fname = $this->input->post('first_name');  
@@ -69,14 +70,10 @@ class Manager extends CI_Controller {
         $blood = $this->input->post('blood_type');
         $home = $civil = $this->input->post('home_address');
         $phone = $this->input->post('phone_no');
-        $email = $this->input->post('email_address');
-        $stats = $this->input->post('stats');
-        $account_number = date('Y'). rand(100000, 999999);
-        $date = date('Y-m-d');
 
         //INSERT MEMBER ACCOUNTS
 
-        $this->registerM->addemployee($username,$password,$usertype,$fname,$mname,$lname,$phone,$email,$pob,$dob,$nationality,$sex,$civil,$blood,$home,$stats,$account_number,$date);
+        $this->register->addemployee($id,$username,$password,$usertype,$fname,$mname,$lname,$phone,$pob,$dob,$nationality,$sex,$civil,$blood,$home);
 
 
 
