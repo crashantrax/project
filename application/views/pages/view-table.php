@@ -4,7 +4,6 @@
 <table class="table table table-hover table-bordered" id="member" style="background-color: white;margin-top: 0%;width: 80%;">
                     <tr style="background-color: #F3F8FB;">
                         <th>#</th>
-                        <!-- <th>Account No.</th> -->
                         <th>Check Date</th>
                         <th>Amount</th>
                         <th>Status</th>
@@ -25,7 +24,6 @@
                             $counter=1;
                         }
                         echo "<tr id='col' class=".$num."><td>".$count."</td>";
-                        // echo "<td>".$row->account_number."</td>";
                         echo "<td>".$row->LoanDate."</td>";
                         echo "<td>".$row->LoanAmount."</td>";
                         echo "<td>".$row->status."</td>";
