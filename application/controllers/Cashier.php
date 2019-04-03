@@ -86,21 +86,11 @@ class Cashier extends CI_Controller {
         $withdraw = $this->reg->viewWithdraws($this->input->get_post('id'));
         $deposits = $this->reg->viewDeposits($this->input->get_post('id'));
         $shares = $this->reg->viewShares($this->input->get_post('id'));
-<<<<<<< HEAD
 
-
-
-
-
-
+        
         if($profile->num_rows()==0){
             $this->load->view('pages/sorry');
 
-=======
-        
-        if($res->num_rows()==0){
-            $this->load->view('pages/sorry');
->>>>>>> f152cf26c539c396a4ae9820c2e575a3b1c519ae
         }else{
             $data = array('title' => "View",'contents' => "pages/member-savings",'page' => "View Member","links" => "members","profi" => $profile,"with" => $withdraw,"depo" => $deposits,"contri" => $contribution,"shares" => $shares );
             $this->load->view('templates/dashboard-header',$data);
@@ -254,10 +244,7 @@ class Cashier extends CI_Controller {
         }
         redirect('cashier');
     }
-<<<<<<< HEAD
 
-=======
->>>>>>> f152cf26c539c396a4ae9820c2e575a3b1c519ae
     public function inserWithdraw(){
         $this->check_logged();
         $this->load->model('Register','register');
@@ -269,10 +256,7 @@ class Cashier extends CI_Controller {
         }
         redirect('cashier');
     }
-<<<<<<< HEAD
 
-=======
->>>>>>> f152cf26c539c396a4ae9820c2e575a3b1c519ae
     public function inserDeposit(){
         $this->check_logged();
         $this->load->model('Register','register');
@@ -311,7 +295,7 @@ class Cashier extends CI_Controller {
     public function update(){
         //member profile
         $this->check_logged();
-
+        $id = $this->input->get_post('id');
         $this->load->model('Register','register');
         $fname = $this->input->post('first_name');  
         $mname = $this->input->post('middle_name');
@@ -331,21 +315,20 @@ class Cashier extends CI_Controller {
         $phone = $this->input->post('phone_no');
         $email = $this->input->post('email_address');
         $stats = $this->input->post('stats');
-        $account_number = date('Y'). rand(100000, 999999);
         $date = date('Y-m-d');
 
         //education
           //INSERT MEMBER ACCOUNTS
         
 
-        $this->register->insertMember($fname,$mname,$lname,$phone,$email,$pob,$dob,$nationality,$sex,$civil,$blood,$home,$stats,$account_number,$date);
+        $this->register->updateMember($id,$fname,$mname,$lname,$phone,$email,$pob,$dob,$nationality,$sex,$civil,$blood,$home,$stats);
 
         $e_year = $this->input->post('e_year');
         $e_addr = $this->input->post('e_address');
         $e_rem = $this->input->post('e_remarks');
 
         if($e_year!="" && $e_addr!="" && $e_rem!=""){
-            $this->register->insertElementary($account_number,$e_year,$e_addr,$e_rem);
+            $this->register->updateElementary($id,$e_year,$e_addr,$e_rem);
         }
 
 
@@ -354,9 +337,9 @@ class Cashier extends CI_Controller {
         $hs_rem = $this->input->post('hs_remarks');
 
         if($hs_year!="" && $hs_addr!="" && $hs_rem!=""){
-            $this->register->insertHighschool($account_number,$hs_year,$hs_addr,$hs_rem);
+            $this->register->updateHighschool($id,$hs_year,$hs_addr,$hs_rem);
         }
-
+/*
         $c_year = $this->input->post('c_year');
         $c_addr = $this->input->post('c_address');
         $c_rem = $this->input->post('c_remarks');
@@ -423,7 +406,7 @@ class Cashier extends CI_Controller {
 
         if($b_trade!="" && $b_type!="" && $b_address!="" && $b_grossIn!="" && $b_own!="" && $b_phone!="" && $b_cap!=""){
             $this->register->insertBusi($account_number,$b_type,$b_address,$b_dob,$b_grossIn,$b_own,$b_phone,$b_cap,$b_trade);
-        }
+        }*/
         redirect('cashier');
     }
 }

@@ -19,7 +19,8 @@
                 <hr>
             </th>
             <th width="200">Max Loan <hr>
-            	<p></p>
+                <?php $num = $res3->row('MemTotalBalance')+$res3->row('MemberTotalSharesCapital')*3.5;?>
+            	<p>P<?=number_format($num,2)?></p>
             	<hr>
             </th>
             <th width="200">Loan <hr>

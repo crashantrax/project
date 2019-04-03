@@ -61,10 +61,13 @@ class Loanclerk extends CI_Controller {
         $res1 = $this->loanclerk->loan();
 
         $res = $this->loanclerk->getReview($this->input->get_post('id'));
+
+        $res3 = $this->loanclerk->viewContribution($this->input->get_post('id'));
+
         if($res->num_rows()==0){
             $this->load->view('pages/sorry');
         }else{
-            $data = array('title' => "Apply : Cooperative Loan",'contents' => "pages/apply-loan",'page' => "Review","links" => "main","res" => $res, "res1" => $res1);
+            $data = array('title' => "Apply : Cooperative Loan",'contents' => "pages/apply-loan",'page' => "Review","links" => "main","res" => $res, "res1" => $res1,"res3"=>$res3);
             $this->load->view('templates/dashboard-header',$data);
             $this->load->view('pages/loan-main',$data);
         }

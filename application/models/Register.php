@@ -13,13 +13,12 @@ class Register extends CI_Model {
 		$this->db->query("DELETE FROM family_info WHERE MemberAccountID =".$id);
 		$this->db->query("DELETE FROM user_employment WHERE MemberAccountID =".$id);
 		$this->db->query("DELETE FROM member_business WHERE MemberAccountID =".$id);
-<<<<<<< HEAD
+
         $this->db->query("DELETE FROM member_withdrawallogs WHERE MemberAccountID =".$id);
         $this->db->query("DELETE FROM member_sharelogs WHERE MemberAccountID =".$id);
         $this->db->query("DELETE FROM member_depositlogs WHERE MemberAccountID =".$id);
         $this->db->query("DELETE FROM member_contribution WHERE MemberAccountID =".$id);
-=======
->>>>>>> f152cf26c539c396a4ae9820c2e575a3b1c519ae
+
 	}
 	public function insertMember($fname,$mname,$lname,$phone,$email,$pob,$dob,$nationality,$sex,$civil,$blood,$home,$stats,$acc,$date){
             $data = array(
@@ -152,9 +151,9 @@ class Register extends CI_Model {
             $this->db->insert('member_business', $data);
 
     	}
-<<<<<<< HEAD
-        public function updateMember($id){
-            ata = array(
+
+        public function updateMember($id,$fname,$mname,$lname,$phone,$email,$pob,$dob,$nationality,$sex,$civil,$blood,$home,$stats){
+            $data = array(
                 'FirstName' => $fname,
                 'MiddleName' => $mname,
                 'LastName' => $lname,
@@ -167,12 +166,21 @@ class Register extends CI_Model {
                 'CivilStatus' => $civil,
                 'BloodType' => $blood,
                 'Address' => $home,
-                'Status'=> $stats,
-                'account_number' => $acc,
-                'date_created' => $date
+                'Status'=> $stats
             );
             $this->db->where('MemberAccountID',$id);
             $this->db->update('member_account', $data);
+        }
+
+        public function updateElementary($id,$e_year,$e_addr,$e_rem){;
+
+            $data = array(
+                'ElementaryDate' => $e_year,
+                'CollegeAddressElementary' => $e_addr,
+                'ElementaryRemarks' => $e_rem
+            );
+            $this->db->where('MemberAccountID',$id);
+            $this->db->update('member_elementary', $data);
         }
         
         public function viewProfile($id){
@@ -234,12 +242,12 @@ class Register extends CI_Model {
         }
             
 
-=======
+
     	public function viewMemCon($id){
     		return $this->db->query("CALL viewMemContrib("."'".$id."'".")");
     	}
 
->>>>>>> f152cf26c539c396a4ae9820c2e575a3b1c519ae
+
         public function insertDeposit($acc,$amt_shared,$amt_dep){
             $id = $this->db->query("SELECT * FROM member_account WHERE MemberAccountID = ".$acc)->row('MemberAccountID');
             $count =  $this->db->query("SELECT * FROM member_contribution WHERE MemberAccountID = $id ");
@@ -272,15 +280,15 @@ class Register extends CI_Model {
                 'MemberAccountID' => $id
                 );
                $this->db->insert('member_withdrawallogs', $data);
-<<<<<<< HEAD
+
                redirect('cashier');
            }
 
 
 
-=======
-           }
->>>>>>> f152cf26c539c396a4ae9820c2e575a3b1c519ae
+
+           
+
         public function insertLoan($acc,$acc_num,$loan,$type){
             $id = $this->db->query("SELECT * FROM member_account WHERE MemberAccountID = ".$acc)->row('MemberAccountID');
             $count =  $this->db->query("SELECT * FROM loanapply WHERE MemberAccountID = $id ");
@@ -299,10 +307,7 @@ class Register extends CI_Model {
             
             }
             redirect('loanclerk');
-<<<<<<< HEAD
 
-=======
->>>>>>> f152cf26c539c396a4ae9820c2e575a3b1c519ae
         }
 }
 

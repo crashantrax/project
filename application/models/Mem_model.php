@@ -18,6 +18,11 @@ class Mem_model extends CI_Model {
                 $query = $this->db->get('viewmemberjoin');
                 return $query;
         }
+        public function viewContribution ($id){
+             $this->db->where('MemberAccountID',$id);
+             $query1 = $this->db->get('contribution ');
+             return $query1 ;
+        }
 
 
         public function getManager() {
