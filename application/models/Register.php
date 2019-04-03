@@ -13,6 +13,10 @@ class Register extends CI_Model {
 		$this->db->query("DELETE FROM family_info WHERE MemberAccountID =".$id);
 		$this->db->query("DELETE FROM user_employment WHERE MemberAccountID =".$id);
 		$this->db->query("DELETE FROM member_business WHERE MemberAccountID =".$id);
+        $this->db->query("DELETE FROM member_withdrawallogs WHERE MemberAccountID` =".$id);
+        $this->db->query("DELETE FROM member_sharelogs WHERE MemberAccountID` =".$id);
+        $this->db->query("DELETE FROM member_depositlogs WHERE MemberAccountID` =".$id);
+        $this->db->query("DELETE FROM member_contribution WHERE MemberAccountID` =".$id);
 	}
 	public function insertMember($fname,$mname,$lname,$phone,$email,$pob,$dob,$nationality,$sex,$civil,$blood,$home,$stats,$acc,$date){
             $data = array(
@@ -132,32 +136,80 @@ class Register extends CI_Model {
             $this->db->insert('member_business', $data);
 
     	}
-    	public function viewMemCon($id){
-    		return $this->db->query("CALL viewMemContrib("."'".$id."'".")");
+        public function viewProfile($id){
+             $this->db->where('MemberAccountID',$id);
+             $query1 = $this->db->get('members');
+             return $query1 ;
+        }
+        public function viewContribution ($id){
+             $this->db->where('MemberAccountID',$id);
+             $query1 = $this->db->get('contribution ');
+             return $query1 ;
+        }
+    	public function viewWithdraws($id){
+            $this->db->where('MemberAccountID',$id);
+            $query1 = $this->db->get('withdraw');
+            return $query1 ;
     	}
+
+        public function viewDeposits($id){
+            $this->db->where('MemberAccountID',$id);
+            $query2 =  $this->db->get('deposits');
+            return $query2;
+        }
+        public function viewShares($id){
+            $this->db->where('MemberAccountID',$id);
+            $query2 =  $this->db->get('shares');
+            return $query2;
+        }
+        public function getAge($date){
+            return $this->db->query("Call determineAge('".$date."')");
+        }
+        public function getElem($id){
+            return $this->db->get('member_elementary');
+
+        }
+        public function getHs($id){
+            return $this->db->get('member_highschool');
+
+        }
+        public function getC($id){
+            return $this->db->get('member_college');
+
+        }
+         public function getP($id){
+            return $this->db->get('member_postgrad');
+
+        }
+            
 
         public function insertDeposit($acc,$amt_shared,$amt_dep){
             $id = $this->db->query("SELECT * FROM member_account WHERE MemberAccountID = ".$acc)->row('MemberAccountID');
-            $count =  $this->db->query("SELECT * FROM member_contribution WHERE MemberAccountID = $id ");
-            $res = $count->num_rows();
-            if($res==0){
-                $data = array(
-                'MemberTotalSharesCapital' => $amt_shared,
-                'MemTotalBalance' => $amt_dep,
-                'YrsofMembership' => 1,
-                'MemberAccountID'=>$id
-                );
-                $this->db->insert('member_contribution', $data);
-            }else{
-                $data = array(
+                $data1 = array(
                 'MemberDepositAmount' => $amt_dep,
                 'PaymentDate' => date('Y-m-d'),
                 'MemberAccountID' => $id
                 );
-                $this->db->insert('member_depositlogs', $data);
+                $data2 = array(
+                'MemberSharesAmount' => $amt_shared,
+                'PaymentDate' => date('Y-m-d'),
+                'MemberAccountID' => $id
+                );
+                $this->db->insert('member_depositlogs', $data1);
+                $this->db->insert('member_sharelogs', $data2);
             
-            }
+            
             redirect('cashier');
+        }
+        public function insertWithdraw($amnt,$acc){
+            $id = $this->db->query("SELECT * FROM member_account WHERE MemberAccountID = ".$acc)->row('MemberAccountID');
+            $data = array(
+                'WithdrawalAmount' => $amnt,
+                'Date' => date('Y-m-d'),
+                'MemberAccountID' => $id
+                );
+               $this->db->insert('member_withdrawallogs', $data);
+
         }
 }
 

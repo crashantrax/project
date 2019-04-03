@@ -8,19 +8,19 @@
 							<table align="center" border="0" class="table">
 		                        <tr>
 		                            <tr>
-		                                <th colspan="3"><div align="center"><?=$res->row('account_number')."-".ucfirst($res->row('LastName').", ".ucfirst($res->row('FirstName'))." ".ucfirst($res->row('MiddleName')))?></div></th>
+		                                <th colspan="3"><div align="center"><?=$prof->row('account_number')."-".ucfirst($prof->row('LastName').", ".ucfirst($prof->row('FirstName'))." ".ucfirst($prof->row('MiddleName')))?></div></th>
 		                            </tr>
 		                            <tr>
 		                                <td>
 		                                    <div class="register-header" >Amount Shared:</div>
-		                                    <div class="register-input"><input style="width: 100%;" class="form-control"   type="text" name="amt_shared"></div>
+		                                    <div class="register-input"><input oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"style="width: 100%;" class="form-control"   type="text" name="amt_shared"></div>
 		                                </td>
 		                                
 		                            </tr>
 		                             <tr>
 		                                <td>
 		                                    <div class="register-header" >Amount Deposit:</div>
-		                                    <div class="register-input"><input style="width: 100%;" class="form-control"   type="text" name="amt_dep"></div>
+		                                    <div class="register-input"><input oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" style="width: 100%;" class="form-control"   type="text" name="amt_dep"></div>
 		                                </td>
 		                                
 		                            </tr>
