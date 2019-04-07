@@ -15,7 +15,7 @@
                         $count=1;
                     $counter=1;
                     $row = $res->result();
-                    for ($x=0;$x<12;$x++){
+                    foreach ($res->result() as $row){
                         if($counter==1){
                             $num = "";
                             $counter=0;
@@ -25,10 +25,9 @@
                             $counter=1;
 
                         }
-                        $date = strtotime('1997-05-05');
-                        $new_date = strtotime('+ 1 year', $date);
+
                         echo "<tr id='col' class=".$num."><td>".$count."</td>";
-                        echo "<td>".date('d/m/Y', $new_date)."</td>";
+                        echo "<td>".$row->LoanDate."</td>";
                         echo "<td>".$row->LoanPayPerMonth."</td>";
                         echo "<td>".$row->status."</td></tr>";
                         
