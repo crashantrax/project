@@ -86,16 +86,14 @@ class Manager extends CI_Controller {
     public function profile(){
         $this->check_logged();
         $this->load->model('Mem_model','members');
-        $res = $this->members->getMembersJoin();
+        $res = $this->members->getMembersJoin($this->input->get_post('id'));
         $data = array('title' => "Manager",'contents' => "pages/s-table",'page' => "Member's Profile","links" => "main","res" => $res  );
         $this->load->view('templates/dashboard-header',$data);
         $this->load->view('pages/manager-main',$data);
-        // $res = $this->members->getMemberJoin();
-        // $data = array('title' => "Manager",'contents' => "pages/s-table",'page' => "Member's Profile","links" => "main","res" => $mj  );
+        
 
 
     }
-
 
     private function main_contents(){
         $this->load->model('Mem_model','members');
